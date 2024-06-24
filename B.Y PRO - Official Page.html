@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>B.Y PRO - Personal Website</title>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+     <style>
+          /* Reset styles */
+          * {
+               margin: 0;
+               padding: 0;
+               box-sizing: border-box;
+          }
+
+          /* General styles */
+          body {
+               font-family: Arial, sans-serif;
+               background-color: #f0f0f0;
+               color: #333;
+          }
+
+          .container {
+               max-width: 1200px;
+               margin: 0 auto;
+               padding: 20px;
+               position: relative;
+          }
+
+          /* Navbar styles */
+          .navbar {
+               background-color: #000;
+               color: #fff;
+               display: flex;
+               justify-content: space-between;
+               align-items: center;
+               padding: 10px 20px;
+               position: relative;
+               z-index: 1;
+          }
+
+          .navbar .logo img {
+               width: 60px;
+               height: auto;
+               margin-right: 10px;
+          }
+
+          .navbar .logo span {
+               font-weight: bold;
+               font-size: 1.5rem;
+          }
+
+          .nav-links {
+               list-style-type: none;
+               display: flex;
+          }
+
+          .nav-links li {
+               margin-right: 20px;
+          }
+
+          .nav-links a {
+               text-decoration: none;
+               color: #fff;
+               font-size: 1.2rem;
+          }
+
+          .nav-links a:hover {
+               text-decoration: underline;
+          }
+
+          /* Services section styles */
+          .services-section {
+               margin-top: 40px;
+               display: flex;
+               flex-wrap: wrap;
+               gap: 20px;
+               justify-content: space-around;
+          }
+
+          .service {
+               background-color: #fff;
+               padding: 20px;
+               display: flex;
+               align-items: center;
+               flex: 1 0 45%;
+               min-width: 300px;
+               text-align: center;
+          }
+
+          .service img {
+               width: 150px;
+               height: auto;
+               margin-bottom: 10px;
+          }
+
+          .service-text {
+               flex: 1;
+          }
+
+          /* About section styles */
+          .about-section {
+               margin-top: 40px;
+               display: none;
+               position: absolute;
+               top: 60px;
+               left: 0;
+               right: 0;
+               background-color: #fff;
+               padding: 20px;
+               z-index: 1000;
+          }
+
+          .about-section.show {
+               display: block;
+          }
+
+          .about-text {
+               font-size: 1.5rem;
+               line-height: 2.2rem;
+               text-align: justify;
+               margin-top: 20px;
+          }
+
+          /* Social media icons bar */
+          .social-icons {
+               background-color: #000;
+               color: #fff;
+               padding: 10px;
+               text-align: center;
+               position: fixed;
+               bottom: 0;
+               left: 0;
+               width: 100%;
+               display: flex;
+               justify-content: center;
+               z-index: 1;
+          }
+
+          .social-icons a {
+               color: #fff;
+               margin: 0 15px;
+               font-size: 2rem;
+          }
+
+          .social-icons a:hover {
+               color: rgb(255, 255, 255);
+          }
+
+          /* Iframe overlay */
+
+
+          .iframe-container {
+               position: fixed;
+               top: 60px;
+               /* Adjust based on your navbar height */
+               left: 0;
+               right: 0;
+               bottom: 60px;
+               /* Adjust based on your footer height */
+               background-color: #fff;
+               z-index: 1000;
+          }
+
+          iframe {
+               width: 100%;
+               height: 100%;
+               border: none;
+          }
+     </style>
+</head>
+
+<body>
+     <!-- Navbar -->
+     <nav class="navbar">
+          <div class="logo">
+               <img src="https://i.ibb.co/Ydq0VCK/1000072077-removebg-preview.png" alt="B.Y PRO">
+               <span>B.Y PRO</span>
+          </div>
+          <ul class="nav-links">
+               <li><a href="#" onclick="showDefaultContent()">Home</a></li>
+               <li><a href="#services" onclick="showDefaultContent()">Services</a></li>
+               <li><a href="#" onclick="toggleAbout()">About</a></li>
+          </ul>
+     </nav>
+
+     <!-- Main Content -->
+     <div class="container">
+          <!-- Services Section -->
+          <section id="services" class="services-section">
+               <div class="service">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgpVdMP9sq3OssNWoGAD8OuG_Yxt3hOzVyCg&s"
+                         alt="Device Repair">
+                    <div class="service-text">
+                         <h3>Device Repair</h3>
+                         <p>We offer repair services for phones and computers.</p>
+                    </div>
+               </div>
+               <div class="service">
+                    <img src="https://academy.hsoub.com/uploads/monthly_2023_04/.thumb.png.c7d2b157e6598de8ca39acfa477468ff.png"
+                         alt="Software Development">
+                    <div class="service-text">
+                         <h3>Software Development</h3>
+                         <p>We provide custom software development solutions.</p>
+                    </div>
+               </div>
+               <div class="service">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZl5RInzdgdjYBY0CQHBBNc0qO5a7xeiw6Wg&s"
+                         alt="Photo Editing and Video Montage">
+                    <div class="service-text">
+                         <h3>Photo Editing and Video Montage</h3>
+                         <p>Professional editing and montage services.</p>
+                    </div>
+               </div>
+               <div class="service">
+                    <img src="https://www.elmasdaronline.dz/wp-content/uploads/2021/08/%D8%A7%D9%84%D8%A3%D9%85%D9%86-%D8%A7%D9%84%D8%B3%D8%A8%D9%8A%D8%B1%D8%A7%D9%86%D9%8A-768x467.jpg"
+                         alt="Cybersecurity Information Services">
+                    <div class="service-text">
+                         <h3>Cybersecurity Information Services</h3>
+                         <p>We provide cybersecurity awareness and information services.</p>
+                    </div>
+               </div>
+          </section>
+
+          <!-- About Section -->
+          <div class="iframe-overlay" id="iframeOverlay" onclick="closeIframe()"></div>
+
+          <iframe>
+               <!DOCTYPE html>
+               <html lang="en">
+
+               <head>
+                    <meta charset="UTF-8">
+                    <title>About B.Y PRO</title>
+                    <style>
+                         body {
+                              font-family: Arial, sans-serif;
+                              background-color: #fff;
+                              color: #333;
+                              padding: 20px;
+                              line-height: 1.6;
+                         }
+
+                         h1 {
+                              font-size: 2rem;
+                              font-weight: bold;
+                              margin-bottom: 20px;
+                         }
+
+                         p {
+                              font-size: 1.2rem;
+                              margin-bottom: 15px;
+                         }
+
+                         ul {
+                              margin-bottom: 15px;
+                         }
+
+                         li {
+                              margin-bottom: 10px;
+                         }
+                    </style>
+               </head>
+
+               <body>
+                    <h1>About B.Y PRO</h1>
+                    <p>At B.Y PRO, we make technology work efficiently and smoothly for you. We are not just a
+                         software company; we are
+                         a leader in the digital transformation world, offering a wide range of integrated services
+                         to meet all your
+                         technological needs.</p>
+
+                    <h2>Our Services include:</h2>
+                    <ul>
+                         <li><strong>Development and Programming:</strong> We provide customized software solutions
+                              tailored to your
+                              business goals, whether you need innovative mobile applications, content management
+                              systems, or
+                              comprehensive e-commerce solutions.</li>
+                         <li><strong>Hardware Repair and Technical Support:</strong> Our specialized team offers
+                              quick and efficient
+                              repair services for various devices, including computers, laptops, and smartphones,
+                              with superior
+                              technical support to ensure seamless business operations.</li>
+                         <li><strong>Software Design and Development:</strong> We build tools that deliver real
+                              operational efficiency
+                              and improvements in your business field, contributing to increased productivity and
+                              cost reduction.</li>
+                         <li><strong>Cybersecurity Education:</strong> We understand the importance of
+                              cybersecurity in the digital
+                              age, so we offer specialized training courses and workshops to educate your employees
+                              on handling
+                              security threats and protecting sensitive data.</li>
+                         <li><strong>User Support and Technical Consultations:</strong> We provide comprehensive
+                              user support services,
+                              including remote technical support and technical consultations to assist you in
+                              making optimal decisions
+                              to achieve your technological goals.</li>
+                    </ul>
+
+                    <p><strong>Why Choose B.Y PRO?</strong> We stand out by providing quality and innovative
+                         technology solutions,
+                         backed by a dedicated team committed to achieving customer satisfaction. Whether you are a
+                         startup or a large
+                         enterprise, we ensure solutions that meet your challenges and contribute to your business
+                         growth with
+                         confidence and sustainability.</p>
+
+                    <p>Start your technological success journey with B.Y PRO today and benefit from a unique
+                         experience in transforming
+                         your ideas into advanced digital reality.</p>
+               </body>
+
+               </html>
+
+          </iframe>
+
+
+     </div>
+
+
+
+
+
+
+
+
+     <!-- Social Media Icons -->
+     <div class="social-icons">
+          <a href="https://web.facebook.com/profile.php?id=100085217054240"><i class="fab fa-facebook"></i></a>
+          <a href="https://twitter.com/Yacinebenm81049"><i class="fab fa-twitter"></i></a>
+          <a href="https://www.instagram.com/b.yproinsta"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.linkedin.com/in/b-y-pro-519940263"><i class="fab fa-linkedin"></i></a>
+          <a href="tel:+213795082763"><i class="fas fa-phone"></i></a>
+          <a href="mailto:bypro2023@outlook.com"><i class="fas fa-envelope"></i></a>
+          <a href="https://yacne.github.io/"><i class="fas fa-globe"></i></a>
+          <a href="https://wa.me/213795082763"><i class="fab fa-whatsapp"></i></a>
+          <a href="http://tiktok.com/@b.yprotiktok"><i class="fab fa-tiktok"></i></a>
+          <a href="https://www.youtube.com/channel/UCJ0lOZV3WmToE3Ea1VzVgYw"><i class="fab fa-youtube"></i></a>
+     </div>
+     </div>
+
+     <!-- JavaScript for About Section Toggle -->
+     <script>
+          function toggleAbout() {
+               var iframeOverlay = document.getElementById('iframeOverlay');
+               var iframeContainer = document.getElementById('iframeContainer');
+
+               iframeOverlay.style.display = 'block';
+               iframeContainer.style.display = 'block';
+          }
+
+          function closeIframe() {
+               var iframeOverlay = document.getElementById('iframeOverlay');
+               var iframeContainer = document.getElementById('iframeContainer');
+
+               iframeOverlay.style.display = 'none';
+               iframeContainer.style.display = 'none';
+          }
+
+          function showDefaultContent() {
+               closeIframe();
+          }
+     </script>
+
+     <!-- Font Awesome for social media icons -->
+     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</body>
+
+</html>
