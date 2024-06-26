@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,32 +16,38 @@
         /* General styles */
         body {
             font-family: Arial, sans-serif;
-            background-color: #ffff;
-            color: #000;
+            
+        		background-image: url('https://images.pexels.com/photos/3987026/pexels-photo-3987026.jpeg?auto=compress&cs=tinysrgb&w=1200&lazy=load');
+            background-size: cover; /* تغطية الخلفية */
+            background-repeat: no-repeat; /* عدم تكرار */
+            background-attachment: fixed; /* الثبات */
+            color: #fff;
+        		text-shadow: 1px 1px 2px black; /* Adding a subtle black shadow */
             z-index: 2;
         }
 
         /* Navbar styles */
         .navbar {
             position: fixed;
+        		display: flex;
             top: 0;
             left: 0;
             width: 100%;
             z-index: 1000;
             background-color: #000;
             color: #fff;
-            display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 10px 0px;
         }
 
         .container {
+        		
             max-width: 1200px;
             margin: 0 auto;
             padding: 10px;
             position: relative;
-            
+            text-shadow: 1px 1px 2px black; /* Adding a subtle black shadow */
         }
 
 		
@@ -50,12 +55,13 @@
     .container1{
         position: relative;
         padding-top: 60px; /* إضافة حشوة علوية حسب ارتفاع شريط التنقل */
+    		text-shadow: 1px 1px 2px black; /* Adding a subtle black shadow */
     }
 	
 
 		    .container2{
         position: relative;
-        
+        text-shadow: 1px 1px 2px black; /* Adding a subtle black shadow */
     }
 		
 		
@@ -72,25 +78,33 @@
             top: 50%;
             transform: translateY(-55%);
             font-size: 1.5rem;
+        		text-shadow: 1px 1px 2px black; /* Adding a subtle black shadow */
         }
 
         .nav-links {
+        		text-shadow: 1px 1px 2px black; /* Adding a subtle black shadow */
             list-style-type: none;
             display: flex;
+        		  z-index: 1;
         }
 
         .nav-links li {
             margin-right: 20px;
+        		text-shadow: 1px 1px 2px black; /* Adding a subtle black shadow */
+        		  z-index: 1;
         }
 
         .nav-links a {
             text-decoration: none;
             color: #fff;
+        		text-shadow: 1px 1px 2px black; /* Adding a subtle black shadow */
             font-size: 1.2rem;
         }
-
+		
         .nav-links a:hover {
             text-decoration: underline;
+        		text-shadow: 1px 1px 2px black; /* Adding a subtle black shadow */
+        		  z-index: 1;
         }
 
         /* Services section styles */
@@ -98,33 +112,38 @@
             display: flex;
             flex-wrap: wrap;
             gap: 15px;
+        		text-shadow: 1px 1px 2px black; /* Adding a subtle black shadow */
             justify-content: space-around;
         }
 
         .service {
-            background-color: #fff;
-            padding: 20px;
+            background-color: none;
+            padding: 30px;
             display: flex;
             align-items: center;
-            flex: 1 0 50%;
-            min-width: 300px;
+            flex: 1 0 60%;
+            min-width: 280px;
             text-align: center;
-            border: 1px solid #000;
+            border: 3px solid #fff;
             border-radius: 15px;
             transition: transform 0.3s ease-in-out;
+        		text-shadow: 1px 1px 2px black; /* Adding a subtle black shadow */
         }
 
         .service:hover {
+        		text-shadow: 1px 1px 2px black; /* Adding a subtle black shadow */
             transform: scale(1.05);
         }
 
         .service img {
+        		text-shadow: 1px 1px 2px black; /* Adding a subtle black shadow */
             width: 150px;
             height: auto;
         }
 
         .service-text {
-            flex: 1;
+            flex: 10;
+        		text-shadow: 1px 1px 2px black; /* Adding a subtle black shadow */
         }
 
         /* About section styles */
@@ -134,50 +153,61 @@
             top: 50px;
             left: 0;
             right: 0;
-            background-color: #fff;
+		background-image: url('https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/Pictures.jpg');
+            background-size: cover; /* تغطية الخلفية */
+            background-repeat: no-repeat; /* عدم تكرار */
+            background-attachment: fixed; /* الثبات */
+        		color: #ffff;
             height: 100%;
             width: 100%;
             z-index: 2;
-            overflow: hidden;
-            padding: 20px;
+        		bottom: 50px;
+            overflow: Auto;
+            padding: 40px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        		box-sizing: border-box;
+        		text-shadow: 1px 1px 2px black; /* Adding a subtle black shadow */
         }
 
         .about-section.show {
             display: block;
+        		text-shadow: 1px 1px 2px black; /* Adding a subtle black shadow */
         }
 
         .about-text {
-            font-size: 1.5rem;
-            line-height: 2.2rem;
+            font-size: 5rem;
+            line-height: 2.5rem;
             text-align: justify;
             margin-top: 20px;
+        		text-shadow: 2px 2px 2px black; /* Adding a subtle black shadow */
         }
 
         /* Social media icons bar */
         .social-icons {
+        		position: fixed;
+        		display: flex;
             background-color: #000;
             color: #fff;
-            padding: 5px;
+            padding: 8px;
             text-align: center;
-            position: fixed;
             bottom: 0;
             left: 0;
             width: 100%;
-            display: flex;
             justify-content: center;
-            z-index: 1;
+            z-index: 3;
+        		text-shadow: 1px 1px 2px black; /* Adding a subtle black shadow */
         }
 
         .social-icons a {
             color: #fff;
-            margin: 0 7px;
+            margin: 0 8px;
             font-size: 2rem;
             transition: color 0.3s ease-in-out;
         }
 
         .social-icons a:hover {
             color: #bbb;
+        		text-shadow: 1px 1px 2px black; /* Adding a subtle black shadow */
         }
 		
 		
@@ -185,54 +215,136 @@
 		
 .container0 {
 		max-width: 1200px;
+		color: white;
             margin: 0 auto;
             padding: 10px;
             position: relative;
+		text-shadow: 1px 1px 2px black; /* Adding a subtle black shadow */
         }
 		
-		
-
-
 .container2 {
+		text-shadow: 1px 1px 2px black; /* Adding a subtle black shadow */
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
     gap: 16px;
     padding: 16px;
+    flex-wrap: wrap; /* تفاف العناصر في حالة الهواتف */
 }
+
 .box {
+    flex: 1 0 calc(50% - 16px); /* لجعل عنصرين في كل سطر على الهواتف */
+    max-width: calc(50% - 16px);
     position: relative;
-    text-align: center;
+    overflow: hidden; /* لإخفاء العنوان الافتراضي قبل التحويل أو الظهور */
+		margin-bottom: 30px;
+		text-shadow: 1px 1px 2px black; /* Adding a subtle black shadow */
 }
+
+@media (min-width: 768px) {
+    .container2 {
+        flex-wrap: nowrap; /* عرض العناصر في صف واحد للحواسيب */
+    }
+
+    .box {
+    		text-shadow: 1px 1px 2px black; /* Adding a subtle black shadow */
+        flex: 1 0 calc(17% - 14px); /* خمسة عناصر في كل سطر على الحواسيب */
+        max-width: calc(17% - 14px);
+    		
+    }
+}
+
 .box img {
+    border-radius: 15px;
+    border: 1px solid #fff;
     width: 100%;
     height: auto;
     display: block;
 }
+
 .box .title {
+		text-shadow: 1px 1px 2px black; /* Adding a subtle black shadow */
     position: absolute;
     bottom: 0;
     left: 0;
+		border-radius: 15px;
+    border: 1px solid #fff;
     width: 100%;
     padding: 10px;
     box-sizing: border-box;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.5);
     font-size: 17px;
     text-align: center;
+    transform: translateY(100%);
+    transition: transform 0.5s ease-in-out;
 }
-@media (max-width: 768px) {
-    .box {
-        flex: 1 1 calc(50% - 32px); /* 2 عناصر في صف واحد */
-        max-width: calc(50% - 32px);
-    }
+
+.box:hover .title {
+		text-shadow: 1px 1px 2px black; /* Adding a subtle black shadow */
+    transform: translateY(0);
 }
-@media (max-width: 480px) {
-    .box {
-        flex: 1 1 calc(50% - 16px); /* 2 عناصر في صف واحد */
-        max-width: calc(50% - 16px);
+
+.box:hover {
+    transform: translateY(-9px); /* التحريك لأعلى عند التحوي و ظهور */
+    opacity: 0.9; /* تقليل الشفافية */
+}
+		
+.white-box {
+    max-width: 800px;
+    margin: 30px auto; /* توسيط العرض الأفقي */
+    padding: 20px;
+    text-align: center;
+    color: #ffffff;
+    background-color: transparent;
+    border-radius: 15px;
+    border: 3px solid #ffffff;
+    box-sizing: border-box; /* تأكد من تضمين الحدود والحشوات ضمن الحجم الكلي */
+		text-shadow: 1px 1px 2px black; /* Adding a subtle black shadow */
+}
+
+@media (max-width: 767px) {
+    .white-box {
+        max-width: 100%; /* جعل المستطيل الأبيض يمتد على عرض الشاشة في الهواتف */
+        margin: 30px auto; /* توسيط العرض الأفقي */
     }
 }
 
+.white-box-content {
+		position: relative;
+    max-width: 800px;
+    margin: 0 auto; /* Center horizontally */
+    text-align: left;
+		text-shadow: 1px 1px 2px black; /* Adding a subtle black shadow */
+}
+
+.white-box h2 {
+		color: #ffff;
+		text-shadow: 1px 1px 2px black; /* Adding a subtle black shadow */
+    font-size: 3rem;
+    position: relative;
+		z-index: 2;
+
+}
+
+.white-box p {
+		color: #ffff;
+		text-shadow: 1px 1px 2px black; /* Adding a subtle black shadow */
+    font-size: 1.7rem;
+    position: relative;
+		
+}
+
+@media (max-width: 767px) {
+    .white-box {
+    		position: relative;
+}
+		.box img {
+    width: 100%;
+    height: auto;
+				border: none;
+				align-items: left;
+				z-index: 3;
+}
+		
     </style>
 </head>
 <body>
@@ -248,31 +360,21 @@
             <li><a href="#" onclick="toggleAbout()">About</a></li>
         </ul>
     </nav>
-
-		
-		
 		
 		<div class="container1">
      		
 <img src="https://i.ibb.co/yXkBDfR/kmc-20240420-093454.png" alt="kmc-20240420-093454" style="width: 100%;max-width: 100%;">
-
-				
-				
 				
     <!-- Main Content -->
     <div class="container">
 
-    		
-    		
-
-  <p style="text-align: center;
+  <p style="text-align: center;color: white;
             font-weight: bold;
             font-size: 2rem;display: flex;
             justify-content: center;
             align-items: center;padding: 30px;">
     Our services :
   </p>
-    		
     		
         <!-- Services Section -->
         <section id="services" class="services-section">
@@ -293,7 +395,7 @@
                 </div>
             </div>
             <div class="service">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZl5RInzdgdjYBY0CQHBBNc0qO5a7xeiw6Wg&s"
+            		<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZl5RInzdgdjYBY0CQHBBNc0qO5a7xeiw6Wg&s"
                     alt="Photo Editing and Video Montage">
                 <div class="service-text">
                     <h1>Photo Editing and Video Montage</h1>
@@ -309,9 +411,6 @@
                 </div>
             </div>
         </section>
-
-    		
-    		
     		
     <!-- Main Content -->
     <div class="container0">
@@ -320,12 +419,10 @@
             font-weight: bold;
             font-size: 2rem;display: flex;
             justify-content: center;
-            align-items: center;padding: 20px;">
+            align-items: center;padding: 30px;">
     Our products  :
-  </p>
+  </p><br><br>
 </div>
-    		
-    		
     		
     		<div class="container2">
     <div class="box">
@@ -343,60 +440,71 @@
     <div class="box">
         <img src="https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/1719302237520.jpg" alt="Image 4">
         <div class="title">Alpha os</div>
-    </div>
-	
- <div class="box">
-        <img src="https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/Bulmaideweb (1).png" alt="Image 5">
-        <div class="title">BulmaIDE web</div>
-    </div>
-	</div>
     	
-    		
-    		
+</div>
+    			<div class="box">
+        <img src="https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/Bulmaideweb (1).png" alt="Image 5">
+        <div class="title">Bulma IDE web</div>
+    </div>
+    				
+    		  			<div class="box">
+        <img src="https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/Whis.png" alt="Image 6">
+        <div class="title">Whis assistance AI</div>
+    </div>
+    				
+    				
+    				<div class="box white-box">
+    						<h1>B.Y PRO</h1>
+    						<div class="white-box-content">
+    								
+        <p>At B.Y PRO, we make technology work efficiently and smoothly for you. We are not just a software company; we are a leader in the digital transformation world, offering a wide range of integrated services to meet all your technological needs.</p>
+        <!-- يمكنك إضافة التفاصيل الجذابة الإضافية هنا -->
+    </div>
+</div>
+    				
         <!-- About section -->
         <div class="about-section" id="iframeContainer">
-            <h1>About B.Y PRO</h1>
+            <h1>About B.Y PRO</h1><br>
             <p>At B.Y PRO, we make technology work efficiently and smoothly for you. We are not just a
                 software company; we are
                 a leader in the digital transformation world, offering a wide range of integrated services
                 to meet all your
                 technological needs.</p>
-
-            <h2>Our Services include:</h2>
+<br>
+            <h2>Our Services include:</h2><br>
             <ul>
                 <li><strong>Development and Programming:</strong> We provide customized software solutions
                     tailored to your
                     business goals, whether you need innovative mobile applications, content management
                     systems, or
-                    comprehensive e-commerce solutions.</li>
+                    comprehensive e-commerce solutions.</li><br>
                 <li><strong>Hardware Repair and Technical Support:</strong> Our specialized team offers
                     quick and efficient
                     repair services for various devices, including computers, laptops, and smartphones,
                     with superior
-                    technical support to ensure seamless business operations.</li>
+                    technical support to ensure seamless business operations.</li><br>
                 <li><strong>Software Design and Development:</strong> We build tools that deliver real
                     operational efficiency
                     and improvements in your business field, contributing to increased productivity and
-                    cost reduction.</li>
+                    cost reduction.</li><br>
                 <li><strong>Cybersecurity Education:</strong> We understand the importance of
                     cybersecurity in the digital
                     age, so we offer specialized training courses and workshops to educate your employees
                     on handling
-                    security threats and protecting sensitive data.</li>
+                    security threats and protecting sensitive data.</li><br>
                 <li><strong>User Support and Technical Consultations:</strong> We provide comprehensive
                     user support services,
                     including remote technical support and technical consultations to assist you in
                     making optimal decisions
                     to achieve your technological goals.</li>
-            </ul>
+            </ul><br>
 
             <p><strong>Why Choose B.Y PRO?</strong> We stand out by providing quality and innovative
-                technology solutions,
-                backed by a dedicated team committed to achieving customer satisfaction. Whether you are a startup or a large enterprise, we ensure solutions that meet your challenges and contribute to your business growth with confidence and sustainability.</p>
+                technology solutions,<br>
+                backed by a dedicated team committed to achieving customer satisfaction. Whether you are a startup or a large enterprise, we ensure solutions that meet your challenges and contribute to your business growth with confidence and sustainability.</p><br>
 
 <p>Start your technological success journey with B.Y PRO today and benefit from a unique experience in transforming your ideas into advanced digital reality.</p>
-
-<br><br><br>
+<br><br><br><br><br>
 </div>
 <!-- Social Media Icons -->
 <div class="social-icons">
