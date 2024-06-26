@@ -61,16 +61,13 @@
             position: relative;
             text-shadow: 1px 1px 2px black; /* Adding a subtle black shadow */
         }
-
-		
 		
     .container1{
         position: relative;
         padding-top: 60px; /* إضافة حشوة علوية حسب ارتفاع شريط التنقل */
     		text-shadow: 1px 1px 2px black; /* Adding a subtle black shadow */
     }
-	
-
+		
 		    .container2{
         position: relative;
         text-shadow: 1px 1px 2px black; /* Adding a subtle black shadow */
@@ -374,7 +371,7 @@
 		
 		<div class="container1">
      		
-<img src="https://i.ibb.co/yXkBDfR/kmc-20240420-093454.png" alt="kmc-20240420-093454" style="width: 100%;max-width: 100%;">
+<img src="" style="width: 100%;max-width: 100%;">
 				
     <!-- Main Content -->
     <div class="container">
@@ -547,6 +544,41 @@
     function showDefaultContent() {
         closeIframe();
     }
+    				
+    				
+    				
+    				
+    				
+    				
+    				
+    				
+    				
+    				
+    // قم بتعريف قائمة بالمسارات للصور
+    var imagePaths = [
+        'https://i.ibb.co/yXkBDfR/kmc-20240420-093454.png',
+        'https://i.ibb.co/c2Wfr0q/kmc-20240625-223011.png" alt="kmc-20240625-223011'
+    ];
+
+    var currentImageIndex = 0;
+    var imgElement = document.querySelector('.container1 img');
+
+    setInterval(function() {
+        // تغيير src للصورة
+        imgElement.src = imagePaths[currentImageIndex];
+
+        // زيادة الفهرس بمقدار واحد والتحقق من الحدود
+        currentImageIndex++;
+        if (currentImageIndex >= imagePaths.length) {
+            currentImageIndex = 0;
+        }
+    }, 5000); // كل 3 ثواني
+
+
+    				
+    				
+    				
+    				
 </script>
 
 <!-- Font Awesome for social media icons -->
