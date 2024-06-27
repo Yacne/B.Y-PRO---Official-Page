@@ -62,11 +62,17 @@
             text-shadow: 1px 1px 2px black; /* Adding a subtle black shadow */
         }
 		
-    .container1{
-        position: relative;
-        padding-top: 60px; /* إضافة حشوة علوية حسب ارتفاع شريط التنقل */
-    		text-shadow: 1px 1px 2px black; /* Adding a subtle black shadow */
-    }
+.container1 {
+		margin-top: 60px;
+            width: 100%;
+            height: 225px;
+            overflow: hidden;
+        }
+        .container1 img {
+            width: 100%;
+            height: 100%;
+        }
+		
 		
 		    .container2{
         position: relative;
@@ -115,45 +121,55 @@
         		  z-index: 1;
         }
 
-        /* Services section styles */
         .services-section {
             display: flex;
+        		padding: 10px;
             flex-wrap: wrap;
             gap: 15px;
-        		text-shadow: 1px 1px 2px black; /* Adding a subtle black shadow */
+            text-shadow: 1px 1px 2px black;
             justify-content: space-around;
         }
 
         .service {
             background-color: none;
-            padding: 30px;
+            
             display: flex;
+            flex-direction: column;
             align-items: center;
-            flex: 1 0 60%;
-            min-width: 280px;
+            flex: 1 0 50%;
+            
             text-align: center;
             border: 3px solid #fff;
             border-radius: 15px;
             transition: transform 0.3s ease-in-out;
-        		text-shadow: 1px 1px 2px black; /* Adding a subtle black shadow */
+            text-shadow: 1px 1px 2px black;
         }
 
         .service:hover {
-        		text-shadow: 1px 1px 2px black; /* Adding a subtle black shadow */
             transform: scale(1.05);
         }
 
         .service img {
-        		text-shadow: 1px 1px 2px black; /* Adding a subtle black shadow */
-            width: 150px;
+            width: 100%;
             height: auto;
+            border-bottom: 3px solid #fff;
+            border-radius: 12px 12px 0 0;
         }
 
         .service-text {
-            flex: 10;
-        		text-shadow: 1px 1px 2px black; /* Adding a subtle black shadow */
+            flex: 1;
+            padding: 20px;
+            text-shadow: 1px 1px 2px black;
         }
 
+        .service:hover {
+            transform: scale(1.05);
+        }
+
+       
+
+       
+		
         /* About section styles */
         .about-section {
             display: none;
@@ -196,7 +212,7 @@
         		display: flex;
             background-color: #000;
             color: #fff;
-            padding: 8px;
+            padding: 7px;
             text-align: center;
             bottom: 0;
             left: 0;
@@ -208,7 +224,7 @@
 
         .social-icons a {
             color: #fff;
-            margin: 0 8px;
+            margin: 0 7px;
             font-size: 2rem;
             transition: color 0.3s ease-in-out;
         }
@@ -231,15 +247,16 @@
         }
 		
 .container2 {
+		border: none;
 		text-shadow: 1px 1px 2px black; /* Adding a subtle black shadow */
     display: flex;
     justify-content: center;
     gap: 16px;
-    padding: 16px;
     flex-wrap: wrap; /* تفاف العناصر في حالة الهواتف */
 }
 
 .box {
+		border: none;
     flex: 1 0 calc(50% - 16px); /* لجعل عنصرين في كل سطر على الهواتف */
     max-width: calc(50% - 16px);
     position: relative;
@@ -254,6 +271,7 @@
     }
 
     .box {
+    		border: none;
     		text-shadow: 1px 1px 2px black; /* Adding a subtle black shadow */
         flex: 1 0 calc(17% - 14px); /* خمسة عناصر في كل سطر على الحواسيب */
         max-width: calc(17% - 14px);
@@ -262,6 +280,7 @@
 }
 
 .box img {
+		border: none;
     border-radius: 15px;
     border: 1px solid #fff;
     width: 100%;
@@ -292,12 +311,12 @@
 }
 
 .box:hover {
+		border: none;
     transform: translateY(-9px); /* التحريك لأعلى عند التحوي و ظهور */
     opacity: 0.9; /* تقليل الشفافية */
 }
 		
 .white-box {
-    max-width: 800px;
     margin: 30px auto; /* توسيط العرض الأفقي */
     padding: 20px;
     text-align: center;
@@ -306,7 +325,20 @@
     border-radius: 15px;
     border: 3px solid #ffffff;
     box-sizing: border-box; /* تأكد من تضمين الحدود والحشوات ضمن الحجم الكلي */
-		text-shadow: 1px 1px 2px black; /* Adding a subtle black shadow */
+    text-shadow: 1px 1px 2px black; /* Adding a subtle black shadow */
+    transition: none; /* إزالة تأثيرات التحويل */
+    opacity: 1; /* إزالة الشفافية */
+}
+
+.white-box .title {
+    transform: none; /* إزالة تأثير التحويل */
+}
+
+@media (min-width: 768px) {
+    .white-box {
+        max-width: 100%; /* جعل المستطيل الأبيض يمتد على عرض الشاشة في الحواسيب */
+        margin: 30px auto; /* توسيط العرض الأفقي */
+    }
 }
 
 @media (max-width: 767px) {
@@ -317,41 +349,45 @@
 }
 
 .white-box-content {
-		position: relative;
     max-width: 800px;
     margin: 0 auto; /* Center horizontally */
     text-align: left;
-		text-shadow: 1px 1px 2px black; /* Adding a subtle black shadow */
+    text-shadow: 1px 1px 2px black; /* Adding a subtle black shadow */
+		padding-b
 }
 
-.white-box h2 {
-		color: #ffff;
-		text-shadow: 1px 1px 2px black; /* Adding a subtle black shadow */
-    font-size: 3rem;
-    position: relative;
-		z-index: 2;
 
+.white-box h1 {
+    position: absolute; /* جعل العنصر موضعيًا لتغطية الصورة */
+    top:35px; /* التحكم في المسافة من الأعلى */
+    right: 53px; /* التحكم في المسافة من اليمين */
+    font-size: 3rem; /* حجم الخط */
+    color: white; /* لون النص */
+    text-shadow: 2px 2px 3px black; /* ظل النص */
+    z-index: 3; /* التحكم في ترتيب الطبقات */
+    padding: 10px; /* الهامش داخل العنصر */
 }
 
 .white-box p {
-		color: #ffff;
-		text-shadow: 1px 1px 2px black; /* Adding a subtle black shadow */
+    color: #ffff;
+    text-shadow: 2px 2px 2px black; /* Adding a subtle black shadow */
     font-size: 1.7rem;
     position: relative;
-		
+}
+    
+
+
+		.box img {
+				
+    border-radius: 15px;
+    border: none;
+    width: 100%;
+    height: auto; /* هذا يساعد في الحفاظ على نسبة العرض إلى الارتفاع */
+    display: block;
+    object-fit: cover; /* يحافظ على نسبة العرض إلى الارتفاع ويقوم بقص الصورة إذا لزم الأمر لتغطية الصندوق */
 }
 
-@media (max-width: 767px) {
-    .white-box {
-    		position: relative;
-}
-		.box img {
-    width: 100%;
-    height: auto;
-				border: none;
-				align-items: left;
-				z-index: 3;
-}
+		
 		
     </style>
 </head>
@@ -369,10 +405,10 @@
         </ul>
     </nav>
 		
-		<div class="container1">
-     		
-<img src="" style="width: 100%;max-width: 100%;">
-				
+		<div class="container1"></div>
+
+		
+		
     <!-- Main Content -->
     <div class="container">
 
@@ -387,7 +423,7 @@
         <!-- Services Section -->
         <section id="services" class="services-section">
             <div class="service">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgpVdMP9sq3OssNWoGAD8OuG_Yxt3hOzVyCg&s"
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMu9Cz741FbbyYaiiQXA-UUs0D6hT4YH1KW6LQBswbqQ&s"
                     alt="Device Repair">
                 <div class="service-text">
                     <h1>Device Repair</h1>
@@ -461,8 +497,12 @@
     </div>
     				
     				
+
+		
     				<div class="box white-box">
-    						<h1>B.Y PRO</h1>
+    							<h1>B.Y PRO</h1>
+<img src="https://i.ibb.co/Ydq0VCK/1000072077-removebg-preview.png"style="width: 70%;height: auto;position: relative;margin-top: 10px;margin-bottom: 20px; padding-right: 80px;border: none;" >
+    					
     						<div class="white-box-content">
     								
         <p>At B.Y PRO, we make technology work efficiently and smoothly for you. We are not just a software company; we are a leader in the digital transformation world, offering a wide range of integrated services to meet all your technological needs.</p>
@@ -531,50 +571,53 @@
 
 <!-- JavaScript for About Section Toggle -->
 <script>
-    function toggleAbout() {
-        var iframeContainer = document.getElementById('iframeContainer');
-        iframeContainer.classList.toggle('show');
-    }
+// قم بإزالة أي تأثيرات تحويل على الصندوق الأبيض
+function toggleAbout() {
+    var iframeContainer = document.getElementById('iframeContainer');
+    iframeContainer.classList.toggle('show');
+}
 
-    function closeIframe() {
-        var iframeContainer = document.getElementById('iframeContainer');
-        iframeContainer.classList.remove('show');
-    }
+function closeIframe() {
+    var iframeContainer = document.getElementById('iframeContainer');
+    iframeContainer.classList.remove('show');
+}
 
-    function showDefaultContent() {
-        closeIframe();
-    }
-    				
-    				
-    				
-    				
-    				
-    				
-    				
-    				
-    				
-    				
-    // قم بتعريف قائمة بالمسارات للصور
-    var imagePaths = [
-        'https://i.ibb.co/yXkBDfR/kmc-20240420-093454.png',
-        'https://i.ibb.co/c2Wfr0q/kmc-20240625-223011.png" alt="kmc-20240625-223011'
-    ];
+function showDefaultContent() {
+    closeIframe();
+}
 
-    var currentImageIndex = 0;
-    var imgElement = document.querySelector('.container1 img');
+// لا حاجة لإضافة تأثيرات أو تعديلات إضافية على الصندوق الأبيض
 
-    setInterval(function() {
-        // تغيير src للصورة
+    				
+    				
+    				
+    				
+    				
+    				
+    				
+    				
+    				// قم بتعريف قائمة بالمسارات للصور
+        var imagePaths = [
+            'https://i.ibb.co/yXkBDfR/kmc-20240420-093454.png',
+            'https://i.ibb.co/c2Wfr0q/kmc-20240625-223011.png'
+        ];
+
+        var currentImageIndex = 0;
+        var containerElement = document.querySelector('.container1');
+        
+        // إنشاء عنصر img ديناميكيًا وإضافته إلى .container1
+        var imgElement = document.createElement('img');
         imgElement.src = imagePaths[currentImageIndex];
+        containerElement.appendChild(imgElement);
 
-        // زيادة الفهرس بمقدار واحد والتحقق من الحدود
-        currentImageIndex++;
-        if (currentImageIndex >= imagePaths.length) {
-            currentImageIndex = 0;
-        }
-    }, 5000); // كل 3 ثواني
-
-
+        setInterval(function() {
+            // تغيير src للصورة
+            currentImageIndex++;
+            if (currentImageIndex >= imagePaths.length) {
+                currentImageIndex = 0;
+            }
+            imgElement.src = imagePaths[currentImageIndex];
+        }, 5000); //
     				
     				
     				
