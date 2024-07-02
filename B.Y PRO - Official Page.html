@@ -23,372 +23,1088 @@
 		
 		
 		
-          /* Reset styles */
-          * {
-               margin: 0;
-               padding: 0;
-               box-sizing: border-box;
-          }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-          /* General styles */
-          body {
-               font-family: Arial, sans-serif;
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('https://images.pexels.com/photos/3987026/pexels-photo-3987026.jpeg?auto=compress&cs=tinysrgb&w=1500&lazy=load');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #fff;
+    text-shadow: 1px 1px 2px black;
+    padding-bottom: 50px; /* تعديل المساحة الفارغة في الأسفل */
+}
 
-               background-image: url('https://images.pexels.com/photos/3987026/pexels-photo-3987026.jpeg?auto=compress&cs=tinysrgb&w=1200&lazy=load');
-               background-size: cover;
-               /* تغطية الخلفية */
-               background-repeat: no-repeat;
-               /* عدم تكرار */
-               background-attachment: fixed;
-               /* الثبات */
-               color: #fff;
-               text-shadow: 1px 1px 2px black;
-               /* Adding a subtle black shadow */
-               z-index: 2;
-          }
+@media (min-width: 1024px) {
+    body {
+        padding-bottom: 100px; /* مسافة أكبر في الأسفل للشاشات الكبيرة */
+    }
+}
 
-          /* Navbar styles */
-          .navbar {
-               position: fixed;
-               display: flex;
-               top: 0;
-               left: 0;
-               width: 100%;
-               z-index: 1000;
-               background-color: #000;
-               color: #fff;
-               justify-content: space-between;
-               align-items: center;
-               padding: 10px 0px;
-          }
+/* Navbar styles */
+.navbar {
+    position: fixed;
+    display: flex;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #000;
+    color: #fff;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0px;
+}
 
-          .container {
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 10px;
+    position: relative;
+}
 
-               max-width: 100%;
-               margin: 0 auto;
-               padding: 10px;
-               position: relative;
-               text-shadow: 1px 1px 2px black;
-               /* Adding a subtle black shadow */
-          }
+.container1 {
+    margin-top: 60px;
+    width: 100%;
+    height: 450px;
+    overflow: hidden;
+}
 
-          .container1 {
-               margin-top: 60px;
-               width: 100%;
-               height: 450px;
-               overflow: hidden;
-          }
+.container1 img {
+    width: 100%;
+    height: 100%;
+}
 
-          .container1 img {
-               width: 100%;
-               height: 100%;
-          }
+.container2 {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
 
+.navbar .logo img {
+    width: 60px;
+    height: auto;
+}
 
-          .container2 {
-               position: relative;
-               text-shadow: 1px 1px 2px black;
-               /* Adding a subtle black shadow */
-          }
+.navbar .logo span {
+    position: absolute;
+    font-weight: bold;
+    top: 50%;
+    transform: translateY(-55%);
+    font-size: 1.5rem;
+}
 
+.nav-links {
+    list-style-type: none;
+    display: flex;
+}
 
-          .navbar .logo img {
-               width: 60px;
-               height: auto;
-               position: relative;
-          }
+.nav-links li {
+    margin-right: 20px;
+}
 
-          .navbar .logo span {
-               position: absolute;
-               font-weight: bold;
-               top: 50%;
-               transform: translateY(-55%);
-               font-size: 1.5rem;
-               text-shadow: 1px 1px 2px black;
-               /* Adding a subtle black shadow */
-          }
+.nav-links a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.2rem;
+}
 
-          .nav-links {
-               text-shadow: 1px 1px 2px black;
-               /* Adding a subtle black shadow */
-               list-style-type: none;
-               display: flex;
-               z-index: 1;
-          }
+.nav-links a:hover {
+    text-decoration: underline;
+}
 
-          .nav-links li {
-               margin-right: 20px;
-               text-shadow: 1px 1px 2px black;
-               /* Adding a subtle black shadow */
-               z-index: 1;
-          }
+.services-section {
+    display: flex;
+    padding: 5px;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: space-around;
+}
 
-          .nav-links a {
-               text-decoration: none;
-               color: #fff;
-               text-shadow: 1px 1px 2px black;
-               /* Adding a subtle black shadow */
-               font-size: 1.2rem;
-          }
+.service {
+    background-color: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border: 3px solid #fff;
+    border-radius: 15px;
+    transition: transform 0.3s ease-in-out;
+}
 
-          .nav-links a:hover {
-               text-decoration: underline;
-               text-shadow: 1px 1px 2px black;
-               /* Adding a subtle black shadow */
-               z-index: 1;
-          }
+.service:hover {
+    transform: scale(1.05);
+}
 
-          .services-section {
-               display: flex;
-               padding: 5px;
-               flex-wrap: wrap;
-               gap: 10px;
-               text-shadow: 1px 1px 2px black;
-               justify-content: space-around;
-          }
+.service img {
+    width: 100%;
+    height: auto;
+    border-bottom: 3px solid #fff;
+    border-radius: 12px 12px 0 0;
+}
 
-          .service {
-               background-color: none;
+.service-text {
+    flex: 1;
+    padding: 10px;
+}
 
-               display: flex;
-               flex-direction: column;
-               align-items: center;
-               flex: 1 0 30%;
+.about-section {
+    display: none;
+    position: fixed;
+    top: 50px;
+    left: 0;
+    right: 0;
+    background-image: url('https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/Pictures.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #fff;
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+    bottom: 50px;
+    overflow: auto;
+    padding: 40px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
 
-               text-align: center;
-               border: 3px solid #fff;
-               border-radius: 15px;
-               transition: transform 0.3s ease-in-out;
-               text-shadow: 1px 1px 2px black;
-          }
+.about-section.show {
+    display: block;
+}
 
-          .service:hover {
-               transform: scale(1.05);
-          }
+.about-text {
+    font-size: 5rem;
+    line-height: 2.5rem;
+    text-align: justify;
+    margin-top: 20px;
+}
 
-          .service img {
-               width: 100%;
-               height: auto;
-               border-bottom: 3px solid #fff;
-               border-radius: 12px 12px 0 0;
-          }
+.social-icons {
+    position: fixed;
+    display: flex;
+    background-color: #000;
+    color: #fff;
+    padding: 5px;
+    text-align: center;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    justify-content: center;
+    z-index: 3;
+}
 
-          .service-text {
-               flex: 1;
-               padding: 10px;
-               text-shadow: 2px 2px 3px black;
-          }
+.social-icons a {
+    color: #fff;
+    margin: 0 20px;
+    font-size: 2rem;
+    transition: color 0.3s ease-in-out;
+}
 
-          .service:hover {
-               transform: scale(1.10);
-          }
+.social-icons a:hover {
+    color: #bbb;
+}
 
+.box-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
 
-
-
-
-          /* About section styles */
-          .about-section {
-               display: none;
-               position: fixed;
-               top: 50px;
-               left: 0;
-               right: 0;
-               background-image: url('https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/Pictures.jpg');
-               background-size: cover;
-               /* تغطية الخلفية */
-               background-repeat: no-repeat;
-               /* عدم تكرار */
-               background-attachment: fixed;
-               /* الثبات */
-               color: #ffff;
-               height: 100%;
-               width: 100%;
-               z-index: 2;
-               bottom: 50px;
-               overflow: Auto;
-               padding: 40px;
-               box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-               box-sizing: border-box;
-               text-shadow: 1px 1px 2px black;
-               /* Adding a subtle black shadow */
-          }
-
-          .about-section.show {
-               display: block;
-               text-shadow: 1px 1px 2px black;
-               /* Adding a subtle black shadow */
-          }
-
-          .about-text {
-               font-size: 5rem;
-               line-height: 2.5rem;
-               text-align: justify;
-               margin-top: 20px;
-               text-shadow: 2px 2px 2px black;
-               /* Adding a subtle black shadow */
-          }
-
-          /* Social media icons bar */
-          .social-icons {
-               position: fixed;
-               display: flex;
-               background-color: #000;
-               color: #fff;
-               padding: 7px;
-               text-align: center;
-               bottom: 0;
-               left: 0;
-               width: 100%;
-               justify-content: center;
-               z-index: 3;
-               text-shadow: 1px 1px 2px black;
-               /* Adding a subtle black shadow */
-          }
-
-          .social-icons a {
-               color: #fff;
-               margin: 0 40px;
-               font-size: 2rem;
-               transition: color 0.3s ease-in-out;
-          }
-
-          .social-icons a:hover {
-               color: #bbb;
-               text-shadow: 1px 1px 2px black;
-               /* Adding a subtle black shadow */
-          }
-
-
-
-
-          .container0 {
-               max-width: 1200px;
-               color: white;
-               margin: 0 auto;
-               padding: 10px;
-               position: relative;
-               text-shadow: 1px 1px 2px black;
-               /* Adding a subtle black shadow */
-          }
-
-          .container2 {
-               border: none;
-               text-shadow: 1px 1px 2px black;
-               /* Adding a subtle black shadow */
-               display: flex;
-               justify-content: center;
-               gap: 15px;
-               flex-wrap: wrap;
-               /* تفاف العناصر في حالة الهواتف */
-          }
-
-          .box-container {
-               border: none;
-               border-radius: 15px;
-               display: flex;
-               flex-wrap: wrap;
-               justify-content: center;
-               /* يوسع العناصر في الوسط */
-               gap: 20px;
-               /* تسافي بين العناصر */
-          }
-
-
-
-          @media (min-width: 768px) {
-               .box {
-                    width: calc(25% - 20px);
-                    border: none;
-                    border-radius: 15px;
-                    /* تنسيق حجم العنصر */
-               }
-          }
-
-
-		
-		
-		.box {
-     border: none;
-     border-radius: 15px;
-     /* المسافة الرأسية بين العناصر */
+.box {
+    border: none;
+    border-radius: 15px;
 }
 
 .box img {
     border: none;
     border-radius: 15px;
-
     width: 100%;
     height: auto;
     display: block;
-    object-fit: cover; /* تطبيق خاصية الـ object-fit */
+    object-fit: cover;
 }
-		
-		
-          .box .title {
-               text-shadow: 1px 1px 2px black;
-               /* Adding a subtle black shadow */
-               position: absolute;
-               bottom: 0;
-               left: 0;
-               border-radius: 15px;
-               border: 1px solid #fff;
-               width: 100%;
-               padding: 10px;
-               box-sizing: border-box;
-               background-color: rgba(255, 255, 255, 0.5);
-               font-size: 17px;
-               text-align: center;
-               transform: translateY(100%);
-               transition: transform 0.5s ease-in-out;
-          }
 
-          .box:hover .title {
-               text-shadow: 1px 1px 2px black;
-               /* Adding a subtle black shadow */
-               transform: translateY(0);
-          }
+.box .title {
+    position: absolute;
+    bottom: 0;
+    border-radius: 15px;
+    border: 1px solid #fff;
+    width: 85%;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0.5);
+    font-size: 1rem; /* تعديل حجم الخط */
+    text-align: center;
+    transform: translateY(100%);
+    transition: transform 0.5s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* لضبط المحتوى في الوسط عموديًا */
+    align-items: center; /* لضبط المحتوى في الوسط أفقيًا */
+}
 
-          .box:hover {
-               border: none;
-               transform: translateY(-9px);
-               /* التحريك لأعلى عند التحوي و ظهور */
-               opacity: 0.9;
-               /* تقليل الشفافية */
-          }
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		.technoapp {
-     display: none;
-               position: fixed;
-               top: 50px;
-               left: 0;
-               right: 0;
-               color: #ffff;
-               height: 90%;
-               width: 100%;
-               z-index: 2;
-               overflow: Auto;
-               background-color: #ffff𝙱.𝚈 𝙿𝚁𝙾
+.box:hover .title {
+    transform: translateY(0);
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* لضبط المحتوى في الوسط عموديًا */
+    align-items: center; /* لضبط المحتوى في الوسط أفقيًا */
+}
+
+
+.box:hover .title {
+    transform: translate(-50%, 0);
+    opacity: 1; /* إظهار النص عند التحريك فوق العنصر */
+}
+    
+.technoapp {
+    display: none;
+    position: fixed;
+    top: 50px;
+    left: 0;
+    right: 0;
+    color: #fff;
+    height: 90%;
+    width: 100%;
+    z-index: 2;
+    overflow: auto;
+    background-color: #000;
 }
 
 .technoapp.show {
-     display: block;
-     text-shadow: 1px 1px 2px black;
+    display: block;
 }
-		
-		
+
+
+
+
+/* الهواتف المحمولة */
+@media (max-width: 767px) {
+    /* Reset styles */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    /* General styles */
+    body {
+        font-family: Arial, sans-serif;
+        background-image: url('https://images.pexels.com/photos/3987026/pexels-photo-3987026.jpeg?auto=compress&cs=tinysrgb&w=1200&lazy=load');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        color: #fff;
+        text-shadow: 1px 1px 2px black;
+    }
+
+    /* Navbar styles */
+    .navbar {
+        position: fixed;
+        display: flex;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        background-color: #000;
+        color: #fff;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 0px;
+    }
+
+    .container {
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 10px;
+        position: relative;
+    }
+
+    .container1 {
+        margin-top: 50px;
+        width: 100%;
+        height: 250px;
+        overflow: hidden;
+    }
+
+    .container1 img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .container2 {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    .navbar .logo img {
+        width: 60px;
+        height: auto;
+    }
+
+    .navbar .logo span {
+        position: absolute;
+        font-weight: bold;
+        top: 50%;
+        transform: translateY(-55%);
+        font-size: 1.5rem;
+    }
+
+    .nav-links {
+        list-style-type: none;
+        display: flex;
+    }
+
+    .nav-links li {
+        margin-right: 20px;
+    }
+
+    .nav-links a {
+        text-decoration: none;
+        color: #fff;
+        font-size: 1.2rem;
+    }
+
+    .nav-links a:hover {
+        text-decoration: underline;
+    }
+
+.services-section {
+    display: flex;
+    padding: 5px;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: space-around;
+}
+
+.service {
+    background-color: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border: 3px solid #fff;
+    border-radius: 15px;
+    transition: transform 0.3s ease-in-out;
+    flex: 1 1 50%; /* تحدد هنا أن كل عنصر يأخذ 30% من العرض مع إمكانية التوسع */
+    max-width: 95%; /* تحدد الحد الأقصى لعرض كل عنصر */
+    box-sizing: border-box; /* لضمان أن الحدود والحشو تُحتسب ضمن الحجم المحدد */
+}
+
+.service:hover {
+    transform: scale(1.05);
+}
+
+.service img {
+    width: 100%;
+    height: auto;
+    border-bottom: 3px solid #fff;
+    border-radius: 12px 12px 0 0;
+}
+
+.service-text {
+    flex: 1;
+    padding: 20px;
+}
+
+    .about-section {
+        display: none;
+        position: fixed;
+        top: 50px;
+        left: 0;
+top: 50px;
+        left: 0;
+        right: 0;
+        background-image: url('https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/Pictures.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        color: #fff;
+        height: 100%;
+        width: 100%;
+        z-index: 2;
+        bottom: 50px;
+        overflow: auto;
+        padding: 20px; /* تعديل البادينغ */
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        box-sizing: border-box;
+    }
+
+    .about-section.show {
+        display: block;
+    }
+
+    .about-text {
+        font-size: 2rem; /* تقليل حجم الخط */
+        line-height: 1.5rem; /* تعديل ارتفاع السطر */
+        text-align: justify;
+        margin-top: 20px;
+    }
+
+    .social-icons {
+        position: fixed;
+        display: flex;
+        background-color: #000;
+        color: #fff;
+        padding: 7px;
+        text-align: center;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        justify-content: center;
+        z-index: 3;
+    }
+
+    .social-icons a {
+        color: #fff;
+        margin: 0 13px; /* تقليل المسافة بين الأيقونات */
+        font-size: 1.5rem; /* تقليل حجم الأيقونات */
+        transition: color 0.3s ease-in-out;
+    }
+
+    .social-icons a:hover {
+        color: #bbb;
+    }
+
+    .box-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px; /* تقليل الفجوة */
+        display: flex;
+    flex-direction: column;
+    align-items: center;
+        
+    }
+
+    .box {
+        border: none;
+        border-radius: 15px;
+        justify-content: center;
+        display: flex;
+    flex-direction: column;
+    align-items: center;
+    }
+
+    .box img {
+        border: none;
+        border-radius: 15px;
+        width: 85%;
+        height: auto;
+        display: block;
+        object-fit: cover;
+        display: flex;
+    flex-direction: column;
+    align-items: center;
+    }
+
+    .box .title {
+    position: absolute;
+    bottom: 0;
+    border-radius: 15px;
+    border: 1px solid #fff;
+    width: 85%;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0.5);
+    font-size: 1rem; /* تعديل حجم الخط */
+    text-align: center;
+    transform: translateY(100%);
+    transition: transform 0.5s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* لضبط المحتوى في الوسط عموديًا */
+    align-items: center; /* لضبط المحتوى في الوسط أفقيًا */
+}
+
+.box:hover .title {
+    transform: translateY(0);
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* لضبط المحتوى في الوسط عموديًا */
+    align-items: center; /* لضبط المحتوى في الوسط أفقيًا */
+}
+    
+
+    .technoapp {
+        display: none;
+        position: fixed;
+        top: 50px;
+        left: 0;
+        right: 0;
+        color: #fff;
+        height: 90%;
+        width: 100%;
+        z-index: 2;
+        overflow: auto;
+        background-color: #000;
+    }
+
+    .technoapp.show {
+        display: block;
+    }
+    
+    
+    
+    .summary-section {
+            margin: 3px;
+        }
+    
+    
+}
+
+
+/* الأجهزة اللوحية */
+@media (min-width: 768px) and (max-width: 1023px) {
+    /* Reset styles */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    /* General styles */
+    body {
+        font-family: Arial, sans-serif;
+        background-image: url('https://images.pexels.com/photos/3987026/pexels-photo-3987026.jpeg?auto=compress&cs=tinysrgb&w=1200&lazy=load');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        color: #fff;
+        text-shadow: 1px 1px 2px black;
+    }
+
+    /* Navbar styles */
+    .navbar {
+        position: fixed;
+        display: flex;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        background-color: #000;
+        color: #fff;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 0px;
+    }
+
+    .container {
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 10px;
+        position: relative;
+    }
+
+    .container1 {
+        margin-top: 60px;
+        width: 100%;
+        height: 450px;
+        overflow: hidden;
+    }
+
+    .container1 img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .container2 {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    .navbar .logo img {
+        width: 60px;
+        height: auto;
+    }
+
+    .navbar .logo span {
+        position: absolute;
+        font-weight: bold;
+        top: 50%;
+        transform: translateY(-55%);
+        font-size: 1.5rem;
+    }
+
+    .nav-links {
+        list-style-type: none;
+        display: flex;
+    }
+
+    .nav-links li {
+        margin-right: 20px;
+    }
+
+    .nav-links a {
+        text-decoration: none;
+        color: #fff;
+        font-size: 1.2rem;
+    }
+
+    .nav-links a:hover {
+        text-decoration: underline;
+    }
+
+    .services-section {
+        display: flex;
+        padding: 5px;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: space-around;
+    }
+
+    .service {
+        background-color: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        border: 3px solid #fff;
+        border-radius: 15px;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .service:hover {
+        transform: scale(1.05);
+    }
+
+    .service img {
+        width: 100%;
+        height: auto;
+        border-bottom: 3px solid #fff;
+        border-radius: 12px 12px 0 0;
+    }
+
+    .service-text {
+        flex: 1;
+        padding: 10px;
+    }
+
+    .about-section {
+        display: none;
+        position: fixed;
+        top: 50px;
+        left: 0;
+        right: 0;
+        background-image: url('https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/Pictures.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        color: #fff;
+        height: 100%;
+        width: 100%;
+        z-index: 2;
+        bottom: 50px;
+        overflow: auto;
+        padding: 30px; /* تعديل البادينغ */
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        box-sizing: border-box;
+    }
+
+    .about-section.show {
+        display: block;
+    }
+
+    .about-text {
+        font-size: 3rem; /* تعديل حجم الخط */
+        line-height: 2rem; /* تعديل ارتفاع السطر */
+        text-align: justify;
+        margin-top: 20px;
+    }
+
+    .social-icons {
+        position: fixed;
+        display: flex;
+        background-color: #000;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        justify-content: center;
+        z-index: 3;
+    }
+
+    .social-icons a {
+        color: #fff;
+        margin: 0 30px; /* تعديل المسافة بين الأيقونات */
+        font-size: 1.8rem; /* تعديل حجم الأيقونات */
+        transition: color 0.3s ease-in-out;
+    }
+
+    .social-icons a:hover {
+        color: #bbb;
+    }
+
+    .box-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px; /* تعديل الفجوة */
+    }
+
+    .box {
+        border: none;
+        border-radius: 15px;
+    }
+
+    .box img {
+        border: none;
+        border-radius: 15px;
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: cover;
+    }
+
+    .box .title {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        border-radius: 15px;
+        border: 1px solid #fff;
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+        background-color: rgba(255, 255, 255, 0.5);
+        font-size: 1.2rem; /* تعديل حجم الخط */
+        text-align: center;
+        transform: translateY(100%);
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .box:hover .title {
+        transform: translateY(0);
+    }
+
+    .box:hover {
+        transform: translateY(-9px);
+        opacity: 0.9;
+    }
+
+    .technoapp {
+        display: none;
+        position: fixed;
+        top: 50px;
+        left: 0;
+        right: 0;
+        color: #fff;
+        height: 90%;
+        width: 100%;
+        z-index: 2;
+        overflow: auto;
+        background-color: #000;
+    }
+
+    .technoapp.show {
+        display: block;
+    }
+}
+
+
+
+/* الأجهزة المكتبية */
+@media (min-width: 1024px) {
+    /* Reset styles */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    /* General styles */
+    body {
+        font-family: Arial, sans-serif;
+        background-image: url('https://images.pexels.com/photos/3987026/pexels-photo-3987026.jpeg?auto=compress&cs=tinysrgb&w=1500&lazy=load');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        color: #fff;
+        text-shadow: 1px 1px 2px black;
+    }
+
+    /* Navbar styles */
+    .navbar {
+        position: fixed;
+        display: flex;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        background-color: #000;
+        color: #fff;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 0px;
+    }
+
+    .container {
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 10px;
+        position: relative;
+    }
+
+    .container1 {
+        margin-top: 60px;
+        width: 100%;
+        height: 500px;
+        overflow: hidden;
+    }
+
+    .container1 img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .container2 {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    .navbar .logo img {
+        width: 60px;
+        height: auto;
+    }
+
+    .navbar .logo span {
+        position: absolute;
+        font-weight: bold;
+        top: 50%;
+        transform: translateY(-55%);
+        font-size: 1.5rem;
+    }
+
+    .nav-links {
+        list-style-type: none;
+        display: flex;
+    }
+
+    .nav-links li {
+        margin-right: 20px;
+    }
+
+    .nav-links a {
+        text-decoration: none;
+        color: #fff;
+        font-size: 1.2rem;
+    }
+
+    .nav-links a:hover {
+        text-decoration: underline;
+    }
+
+    .services-section {
+    display: flex;
+    padding: 20px;
+    flex-wrap: wrap;
+    gap: 50px;
+    justify-content: space-around;
+}
+
+.service {
+    background-color: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border: 3px solid #fff;
+    border-radius: 15px;
+    transition: transform 0.3s ease-in-out;
+    width: calc(50% - 50px); /* يجعل كل عنصر يأخذ نصف العرض مع حساب الفجوة */
+}
+
+.service:hover {
+    transform: scale(1.05);
+}
+
+.service img {
+    width: 100%;
+    height: auto;
+    border-bottom: 3px solid #fff;
+    border-radius: 12px 12px 0 0;
+}
+
+.service-text {
+    flex: 1;
+    padding: 10px;
+}
+
+    .about-section {
+        display: none;
+        position: fixed;
+        top: 50px;
+        left: 0;
+        right: 0;
+        background-image: url('https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/Pictures.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        color: #fff;
+        height: 100%;
+        width: 100%;
+        z-index: 2;
+        bottom: 50px;
+        overflow: auto;
+        padding: 40px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        box-sizing: border-box;
+    }
+
+    .about-section.show {
+        display: block;
+    }
+
+    .about-text {
+        font-size: 5rem;
+        line-height: 2.5rem;
+        text-align: justify;
+        margin-top: 20px;
+    }
+
+    .social-icons {
+        position: fixed;
+        display: flex;
+        background-color: #000;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        justify-content: center;
+        z-index: 3;
+    }
+
+    .social-icons a {
+        color: #fff;
+        margin: 0 40px;
+        font-size: 3rem;
+        transition: color 0.3s ease-in-out;
+    }
+
+    .social-icons a:hover {
+        color: #bbb;
+    }
+
+.box-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* يجعل العناصر المتبقية في الوسط */
+    gap: 20px;
+}
+
+.box {
+    border: none;
+    border-radius: 15px;
+    padding: 20px;
+    width: calc(25% - 20px); /* يجعل كل عنصر يأخذ ربع العرض */
+    box-sizing: border-box;
+    position: relative;
+}
+
+.box .title {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 100%);
+    border-radius: 15px;
+    border: 1px solid #fff;
+    width: 85%;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0.5);
+    font-size: 1rem; /* تعديل حجم الخط */
+    text-align: center;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    display: flex;
+    justify-content: center; /* جعل النص في المنتصف أفقياً */
+    align-items: center; /* جعل النص في المنتصف عمودياً */
+    opacity: 0; /* إخفاء النص في البداية */
+}
+
+.box:hover .title {
+    transform: translate(-50%, 0);
+    opacity: 1; /* إظهار النص عند التحريك فوق العنصر */
+}
+    
+    
+    .technoapp {
+        display: none;
+        position: fixed;
+        top: 50px;
+        left: 0;
+        right: 0;
+        color: #fff;
+        height: 95%;
+        width: 100%;
+        z-index: 2;
+        overflow: auto;
+        background-color: #000;
+    }
+
+    .technoapp.show {
+        display: block;
+    }
+    
+    
+    
+}
+
+
+
+
+
+.summary-section {
+            background-color: rgba(0, 0, 0, 0.3); /* لون الخلفية مع شفافية */
+            color: #fff;
+            padding: 20px;
+            border: 3px solid #fff;
+            border-radius: 15px;
+            margin: 20px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            margin-bottom: 20px;
+        }
+
+        .summary-section img {
+            width: 150px;
+           
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .summary-text {
+            font-size: 1.5rem;
+            line-height: 1.3;
+            text-align: center;
+            max-width: 100%;
+        }
+
+
 		
      </style>
 </head>
@@ -581,13 +1297,31 @@
                     <a href="https://www.linkedin.com/in/b-y-pro-519940263"><i class="fab fa-linkedin"></i></a>
                     <a href="tel:+213795082763"><i class="fas fa-phone"></i></a>
                     <a href="mailto:bypro2023@outlook.com"><i class="fas fa-envelope"></i></a>
-
                     <a href="https://wa.me/213795082763"><i class="fab fa-whatsapp"></i></a>
                     <a href="http://tiktok.com/@b.yprotiktok"><i class="fab fa-tiktok"></i></a>
                     <a href="https://www.youtube.com/@technoYT2024"><i class="fab fa-youtube"></i></a>
                </div>
+               
+               
+               
+               
+               
+               
+<div class="summary-section">
+    <img src="https://i.ibb.co/Ydq0VCK/1000072077-removebg-preview.png" alt="B.Y PRO Logo">
+    <div class="summary-text">
+        <p>B.Y PRO software company is one of the leading companies in providing integrated software solutions. We are keen to provide the best services to our customers, focusing on improving performance, efficiency, and ease of use on various devices. We always strive to provide innovative solutions that meet users' needs and ensure a distinctive and effective experience.</p>
+    </div>
+</div>
 
-
+               
+               
+               
+               
+               
+               
+               
+               
                <!-- JavaScript for About Section Toggle -->
                <script>
                     // قم بإزالة أي تأثيرات تحويل على الصندوق الأبيض
