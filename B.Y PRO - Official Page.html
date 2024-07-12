@@ -1318,11 +1318,13 @@ body {
                     <div class="title">Alpha os</div>
 
                </div>
-               <div class="box">
-                    <img src="https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/Bulmaideweb (1).png"
-                         alt="Image 5">
-                    <div class="title">Bulma IDE web</div>
-               </div>
+          		
+                <div onclick="toggleBulma()" class="box">
+                		<img src="https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/Bulmaideweb (1).png" alt="Image 5">
+                		<div class="title">Bulma IDE web</div>
+                		
+                
+          </div>
 
                <div class="box">
                     <img src="https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/Whis.png"
@@ -1404,7 +1406,7 @@ body {
 <div class="summary-section">
     <img src="https://i.ibb.co/Ydq0VCK/1000072077-removebg-preview.png" alt="B.Y PRO Logo">
     <div class="summary-text">
-        <p>B.Y PRO software company is one of the leading companies in providing integrated software solutions. We are keen to provide the best services to our customers, focusing on improving performance, efficiency, and ease of use on various devices. We always strive to provide innovative solutions that meet users' needs and ensure a distinctive and effective experience.</p>
+        <p>B.Y PRO software company is one of the leading companies in providing integrated software solutions. We are keen to provide the best services to our customers, focusing on improving performance, efficiency, and ease of use on various devices. We always strive to provide innovative solutions that meet users needs and ensure a distinctive and effective experience.</p>
     </div>
 </div>
 
@@ -1481,6 +1483,20 @@ body {
                 technoIframeContainer.style.display = "none";
             }
         }
+          		
+          		
+          		
+          		function toggleBulma() {
+            var technoIframeContainer = document.getElementById('technoIframeContainer');
+            var technoIframe = document.getElementById('technoIframe');
+            if (technoIframeContainer.style.display === "none" || technoIframeContainer.style.display === "") {
+                technoIframe.src = "https://yacne.github.io/B.Y-PRO---Official-Page/Bulma%20ide%20web.html";
+                technoIframeContainer.style.display = "block";
+            } else {
+                technoIframeContainer.style.display = "none";
+            }
+        }
+          		
 
        function toggleAbout() {
             var iframeContainer = document.getElementById('iframeContainer');
