@@ -17,7 +17,7 @@
             margin: 0;
             box-sizing: border-box;
             font-family: Arial, sans-serif;
-            font-size: 2rem;
+            font-size: 1.9rem;
         		background-color: #ffff
         }
 
@@ -54,7 +54,7 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            font-size: 3rem;
+            font-size: 2.8rem;
             color: #000;
             font-weight: bold;
         }
@@ -202,7 +202,7 @@
 .mini img {
     position: absolute;
     right: 20px;
-    transform: translateY(-50%);
+    transform: translateY(-20%);
     width: 32px; 
     height: 32px; 
     border-radius: 5px;
@@ -262,7 +262,7 @@
 
     /* تعديل النصوص */
     .text-container {
-    		font-size: 2rem;
+    		font-size: 1.8rem;
         margin-left: 0;
         margin-right: 5%;
             justify-content: center;
@@ -307,11 +307,11 @@
 				
 				
 				    body {
-        font-size: 1.6rem;
+        font-size: 1.3rem;
     }
 
     .text-container {
-        font-size: 2.5rem;
+        font-size: 2.3rem;
     }
 
     .description {
@@ -488,9 +488,9 @@
         		.mini img {
     position: absolute;
     right: 20px;
-    transform: translateY(-50%);
-    width: 80px; 
-    height: 80px; 
+    transform: translateY(-60%);
+    width: 70px; 
+    height: 70px; 
     border-radius: 5px;
 }
         		
@@ -601,7 +601,7 @@
 <body>
 		
 		
-		<img class="top-image" src="https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/Bulmaideweb (1).png">
+		<img class="top-image" src="https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/Bulma.jpg">
 <div class="content">
     <div class="image-container">
         <img src="https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/Bulmaideweb (1).png" alt="Bulma IDE web">
@@ -638,7 +638,6 @@ Simply and the solution, and also the automatic and quick correction feature, I 
     <img src="https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/22.jpg" alt="Image 2">
     <img src="https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/33.jpg" alt="Image 3">
     <img src="https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/44.jpg" alt="Image 4">
-    <img src="https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/55.jpg" alt="Image 5">
 </div>
 
 <div class="stars">
@@ -783,35 +782,30 @@ function submitComment() {
 }
 
 		
+	
 		
 		
+		function downloadLatestVersion() {
+    const url = 'https://raw.githubusercontent.com/Yacne/Bulma-IDE-web/main/Bulma%20IDE%20web.apk';
+    fetch(url)
+        .then(response => response.blob())
+        .then(blob => {
+            const a = document.createElement('a');
+            a.style.display = 'none';
+            document.body.appendChild(a);
+            const url = window.URL.createObjectURL(blob);
+            a.href = url;
+            a.download = 'Bulma_IDE_web.apk';
+            a.click();
+            window.URL.revokeObjectURL(url);
+            document.body.removeChild(a);
+        })
+        .catch(error => {
+            console.error('Error fetching the file:', error);
+        });
+}
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-        function downloadLatestVersion() {
-            const link = document.createElement('a');
-            link.href = 'https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/Bulma20%IDE20%web%7D.apk';
-            link.download = 'Techno_app_Last_version.apk';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        }
-
-        function downloadOldVersion(url) {
-            const link = document.createElement('a');
-            link.href = url;
-            link.download = url.split('/').pop();
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        }
 
     </script>
 </body>
