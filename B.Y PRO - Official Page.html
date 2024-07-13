@@ -108,7 +108,7 @@ body {
 }
 
 .nav-links li {
-    margin-right: 20px;
+    margin-right: 10px;
 }
 
 .nav-links a {
@@ -1187,12 +1187,14 @@ body {
                <img src="https://i.ibb.co/Ydq0VCK/1000072077-removebg-preview.png" alt="B.Y PRO">
                <span>B.Y PRO</span>
           </div>
-          <ul class="nav-links">
-               <li><a href="#" onclick="showDefaultContent()">Home</a></li>
-
-               <li><a href="#" onclick="toggleAbout()">About</a></li>
-          </ul>
-     </nav>
+     		
+    <ul class="nav-links">
+    		  <li onclick="toggleBYPRO()">web app</li>
+        <li><a href="#" onclick="showDefaultContent()">Home</a></li>
+        <li><a href="#" onclick="toggleAbout()">About</a></li>
+      
+    </ul>
+</nav>
 
      <div class="container1"></div>
 
@@ -1302,17 +1304,17 @@ body {
           		
           		
           		
-               <div class="box">
+               <div onclick="toggleZamasou()" class="box">
                     <img src="https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/1719302211684.jpg"
                          alt="Image 2">
                     <div class="title">Zamasou hacking devices</div>
                </div>
-               <div class="box">
+               <div onclick="toggleMoro()" class="box">
                     <img src="https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/1719302220693.jpg"
                          alt="Image 3">
                     <div class="title">Moro Fb hacking</div>
                </div>
-               <div class="box">
+               <div onclick="toggleAlpha()" class="box">
                     <img src="https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/1719302237520.jpg"
                          alt="Image 4">
                     <div class="title">Alpha os</div>
@@ -1326,7 +1328,7 @@ body {
                 
           </div>
 
-               <div class="box">
+               <div onclick="toggleWhis()" class="box">
                     <img src="https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/Whis.png"
                          alt="Image 6">
                     <div class="title">Whis assistance AI</div>
@@ -1496,6 +1498,65 @@ body {
                 technoIframeContainer.style.display = "none";
             }
         }
+          		
+          		
+          		function toggleMoro() {
+            var technoIframeContainer = document.getElementById('technoIframeContainer');
+            var technoIframe = document.getElementById('technoIframe');
+            if (technoIframeContainer.style.display === "none" || technoIframeContainer.style.display === "") {
+                technoIframe.src = "https://yacne.github.io/B.Y-PRO---Official-Page/Moro.html";
+                technoIframeContainer.style.display = "block";
+            } else {
+                technoIframeContainer.style.display = "none";
+            }
+        }
+          		
+          		
+          		function toggleWhis() {
+            var technoIframeContainer = document.getElementById('technoIframeContainer');
+            var technoIframe = document.getElementById('technoIframe');
+            if (technoIframeContainer.style.display === "none" || technoIframeContainer.style.display === "") {
+                technoIframe.src = "https://yacne.github.io/B.Y-PRO---Official-Page/Whis.html";
+                technoIframeContainer.style.display = "block";
+            } else {
+                technoIframeContainer.style.display = "none";
+            }
+        }
+          		
+          		function toggleZamasou() {
+            var technoIframeContainer = document.getElementById('technoIframeContainer');
+            var technoIframe = document.getElementById('technoIframe');
+            if (technoIframeContainer.style.display === "none" || technoIframeContainer.style.display === "") {
+                technoIframe.src = "https://yacne.github.io/B.Y-PRO---Official-Page/Zamasou.html";
+                technoIframeContainer.style.display = "block";
+            } else {
+                technoIframeContainer.style.display = "none";
+            }
+        }
+          		
+          		function toggleAlpha() {
+            var technoIframeContainer = document.getElementById('technoIframeContainer');
+            var technoIframe = document.getElementById('technoIframe');
+            if (technoIframeContainer.style.display === "none" || technoIframeContainer.style.display === "") {
+                technoIframe.src = "https://yacne.github.io/B.Y-PRO---Official-Page/Alphaos.html";
+                technoIframeContainer.style.display = "block";
+            } else {
+                technoIframeContainer.style.display = "none";
+            }
+        }
+          		
+          		
+          		
+          		
+          		
+          		
+          		
+          		
+          		
+          		
+          		
+          		
+          		
           		
 
        function toggleAbout() {
