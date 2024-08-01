@@ -160,7 +160,7 @@ body {
 .about-section {
     display: none;
     position: fixed;
-    top: 30px;
+    top: 0;
     left: 0;
     right: 0;
     background-image: url('https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/Pictures.jpg');
@@ -173,7 +173,8 @@ body {
     z-index: 2;
     bottom: 50px;
     overflow: auto;
-    padding: 40px;
+    padding-top: 20%;
+        padding-left: 5%;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     box-sizing: border-box;
 }
@@ -184,9 +185,9 @@ body {
 
 .about-text {
     font-size: 5rem;
-    line-height: 2.5rem;
+    line-height: 3rem;
     text-align: justify;
-    margin-top: 20px;
+    margin-top: 50%;
 }
 
     .social-icons {
@@ -488,7 +489,7 @@ position: fixed;
     .about-section {
         display: none;
         position: fixed;
-        top: 30px;
+        top: 0;
         left: 0;
         left: 0;
         right: 0;
@@ -500,9 +501,9 @@ position: fixed;
         height: 100%;
         width: 100%;
         z-index: 2;
-        bottom: 50px;
         overflow: auto;
-        padding: 20px; /* تعديل البادينغ */
+        padding-top: 20%;
+        padding-left: 5%;
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
         box-sizing: border-box;
     }
@@ -513,9 +514,10 @@ position: fixed;
 
     .about-text {
         font-size: 2rem; /* تقليل حجم الخط */
-        line-height: 1.5rem; /* تعديل ارتفاع السطر */
+        line-height: 3rem; /* تعديل ارتفاع السطر */
         text-align: justify;
-        margin-top: 20px;
+        margin-top: 50%;
+        padding: 50%;
     }
 
     .social-icons {
@@ -839,7 +841,7 @@ position: fixed;
     .about-section {
         display: none;
         position: fixed;
-        top: 50px;
+        top: 0;
         left: 0;
         right: 0;
         background-image: url('https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/Pictures.jpg');
@@ -852,7 +854,9 @@ position: fixed;
         z-index: 2;
         bottom: 50px;
         overflow: auto;
-        padding: 40px;
+        padding-top: 10%;
+        padding-left: 5%;
+        padding-right: 5%;
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
         box-sizing: border-box;
     }
@@ -863,9 +867,10 @@ position: fixed;
 
     .about-text {
         font-size: 5rem;
-        line-height: 2.5rem;
+        line-height: 3rem;
         text-align: justify;
-        margin-top: 20px;
+        margin: 50%;
+        padding: 50%;
     }
 
     .social-icons {
