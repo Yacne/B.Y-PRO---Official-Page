@@ -1,4 +1,3 @@
-
                     // قم بتعريف قائمة بالمسارات للصور
                     var imagePaths = [
                          'https://i.ibb.co/yXkBDfR/kmc-20240420-093454.png',
@@ -183,46 +182,223 @@ function downloadApp() {
 
 
 
+// دالة لعرض أو إخفاء نافذة البحث
+function togglePopup() {
+    var popup = document.getElementById("popup");
+    var resultsPopup = document.getElementById("resultsPopup");
+    
+    if (popup.style.display === "block") {
+        popup.style.display = "none";
+        resultsPopup.style.display = "none"; // إخفاء نافذة النتائج عند إغلاق نافذة البحث
+    } else {
+        popup.style.display = "block";
+        resultsPopup.style.display = "none"; // إخفاء نافذة النتائج عند فتح نافذة البحث
+        document.querySelector('.search-input').value = ''; // مسح نص صندوق البحث
+        document.querySelector('.search-results').innerHTML = ''; // مسح نتائج البحث
+        document.getElementById('noResults').style.display = 'none'; // إخفاء رسالة عدم وجود نتائج
+    }
+}
 
+// دالة لإغلاق نافذة البحث
+function closePopup() {
+    var popup = document.getElementById("popup");
+    var resultsPopup = document.getElementById("resultsPopup");
+    
+    popup.style.display = "none";
+    resultsPopup.style.display = "none"; // إخفاء نافذة النتائج عند إغلاق نافذة البحث
+    document.querySelector('.search-input').value = ''; // مسح نص صندوق البحث
+    document.querySelector('.search-results').innerHTML = ''; // مسح نتائج البحث
+    document.getElementById('noResults').style.display = 'none'; // إخفاء رسالة عدم وجود نتائج
+}
 
-
-
+// دالة لإظهار مؤشر التحميل
 function showLoadingIndicator() {
     const loadingIndicator = document.querySelector('.loading-indicator');
     loadingIndicator.style.display = 'block';
 }
 
+// دالة لإخفاء مؤشر التحميل
 function hideLoadingIndicator() {
     const loadingIndicator = document.querySelector('.loading-indicator');
     loadingIndicator.style.display = 'none';
 }
 
+// بيانات صفحات البحث
+const pages = [
+    'https://yacne.github.io/B.Y-PRO---Official-Page/Device.html',
+    'https://yacne.github.io/B.Y-PRO---Official-Page/Software.html',
+    'https://yacne.github.io/B.Y-PRO---Official-Page/Hacking.html',
+    'https://yacne.github.io/B.Y-PRO---Official-Page/Alpha os.html',
+    'https://yacne.github.io/B.Y-PRO---Official-Page/Bulma ide web.html',
+    'https://yacne.github.io/B.Y-PRO---Official-Page/Montage.html',
+    'https://yacne.github.io/B.Y-PRO---Official-Page/Moro.html',
+    'https://yacne.github.io/B.Y-PRO---Official-Page/Techno app.html',
+    'https://yacne.github.io/B.Y-PRO---Official-Page/Teleportaion.html',
+    'https://yacne.github.io/B.Y-PRO---Official-Page/Whis assistance ai.html',
+    'https://yacne.github.io/B.Y-PRO---Official-Page/Zamasou.html'
+];
+
+// دالة للبحث في صفحة معينة
+function searchInPage(page, searchInput) {
+    return fetch(page)
+        .then(response => response.text())
+        .then(text => {
+            if (text.toLowerCase().includes(searchInput)) {
+                return page;
+            }
+            return null;
+        });
+}
 
 
 
+// دالة لعرض نتائج البحث
 function showResults() {
-    const resultsPopup = document.getElementById('resultsPopup');
-    const searchInput = document.querySelector('.search-input').value.toLowerCase();
-    const searchResults = document.querySelector('.search-results');
-    const noResults = document.querySelector('.no-results');
+    var searchInput = document.querySelector('.search-input').value.toLowerCase();
+    var resultsContainer = document.querySelector('.search-results');
+    var noResults = document.getElementById('noResults');
 
-    searchResults.innerHTML = '';
-    showLoadingIndicator(); // 显示加载指示器
+    // مسح النتائج السابقة
+    resultsContainer.innerHTML = '';
 
-    setTimeout(() => { // 模拟搜索延迟
-        const results = searchInSource(searchInput); // 你的搜索逻辑
+    // البحث في العناصر المتاحة
+    var elements = document.querySelectorAll('.service, .products, .About, .social-icons'); // تحديث الكلاسات هنا
+    var resultsFound = false;
 
-        hideLoadingIndicator(); // 隐藏加载指示器
+    elements.forEach(function(element) {
+        var titleElement = element.querySelector('.title, .service-text h1');
+        if (titleElement) {
+            var title = titleElement.textContent.toLowerCase(); // التحقق من وجود العنوان
+            if (title.includes(searchInput)) {
+                var resultItem = document.createElement('div');
+                resultItem.classList.add('search-result-item');
 
-        if (results.length > 0) {
-            results.forEach(result => {
-                // 处理并显示搜索结果
-            });
-            resultsPopup.style.display = 'block';
-            noResults.style.display = 'none';
-        } else {
-            resultsPopup.style.display = 'block';
-            noResults.style.display = 'block';
+                var resultTitle = document.createElement('h3');
+                resultTitle.style.color = 'white';
+                resultTitle.style.fontSize = '2rem';
+                resultTitle.textContent = title;
+
+                var resultClass = document.createElement('p');
+                resultClass.style.color = 'blue';
+                resultClass.textContent = element.className; // الحصول على اسم الكلاس
+
+                resultItem.appendChild(resultTitle);
+                resultItem.appendChild(resultClass);
+                resultsContainer.appendChild(resultItem);
+
+                // تحديد الدالة المرتبطة بناءً على النص الموجود في العنوان
+                resultItem.onclick = function() {
+                    handleResultClick(title);
+                };
+
+                resultsFound = true;
+            }
         }
-    }, 1000); // 模拟延迟
+    });
+
+    // عرض رسالة "لا توجد نتائج" إذا لم يتم العثور على أي نتائج
+    noResults.style.display = resultsFound ? 'none' : 'block';
+    document.getElementById('resultsPopup').style.display = 'block';
+}
+
+
+// دالة لعرض نتائج البحث
+function showResults() {
+    var searchInput = document.querySelector('.search-input').value.toLowerCase();
+    var resultsContainer = document.querySelector('.search-results');
+    var noResults = document.getElementById('noResults');
+
+    // مسح النتائج السابقة
+    resultsContainer.innerHTML = '';
+
+    // البحث في العناصر المتاحة
+    var elements = document.querySelectorAll('.service, .products, .About, .social-icons');
+    var resultsFound = false;
+
+    elements.forEach(function(element) {
+        var titleElement = element.querySelector('.title, .service-text h1');
+        if (titleElement) {
+            var title = titleElement.textContent.toLowerCase();
+            if (title.includes(searchInput)) {
+                var resultItem = document.createElement('div');
+                resultItem.classList.add('search-result-item');
+
+                var resultTitle = document.createElement('h3');
+                resultTitle.style.color = 'white';
+                resultTitle.style.fontSize = '2rem';
+                resultTitle.textContent = title;
+
+                var resultClass = document.createElement('p');
+                resultClass.style.color = 'blue';
+                resultClass.textContent = element.className;
+
+                resultItem.appendChild(resultTitle);
+                resultItem.appendChild(resultClass);
+                resultsContainer.appendChild(resultItem);
+
+                // تحديد الدالة المرتبطة بناءً على النص الموجود في العنوان
+                resultItem.onclick = function() {
+                    handleResultClick(title);
+                };
+
+                resultsFound = true;
+            }
+        }
+    });
+
+    // عرض رسالة "لا توجد نتائج" إذا لم يتم العثور على أي نتائج
+    noResults.style.display = resultsFound ? 'none' : 'block';
+    document.getElementById('resultsPopup').style.display = 'block';
+}
+
+// دالة لمعالجة النقر على نتائج البحث
+function handleResultClick(title) {
+    var normalizedTitle = title.toLowerCase();
+
+    switch (normalizedTitle) {
+        case 'device':
+            toggleDevice();
+            break;
+        case 'software':
+            toggleSoftware();
+            break;
+        case 'techno app':
+            toggleTechnoApp();
+            break;
+        case 'bulma ide web':
+            toggleBulma();
+            break;
+        case 'moro':
+            toggleMoro();
+            break;
+        case 'whis':
+            toggleWhis();
+            break;
+        case 'zamasou':
+            toggleZamasou();
+            break;
+        case 'alphaos':
+            toggleAlpha();
+            break;
+        case 'about':
+            toggleAbout();
+            break;
+        case 'montage':
+            toggleMontage();
+            break;
+        case 'teleportation':
+            toggleTeleportation();
+            break;
+        case 'hacking':
+            toggleHacking();
+            break;
+        case 'social icons':
+            toggleSocialIcons();
+            break;
+        default:
+            alert('No action defined for this result.');
+    }
+
+    // إغلاق نافذة البحث بعد النقر
+    closePopup();
 }
