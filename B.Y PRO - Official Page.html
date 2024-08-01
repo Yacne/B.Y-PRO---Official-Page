@@ -1,317 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-     <link rel="manifest" href="https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/manifest.json">
-     <meta name="mobile-web-app-capable" content="yes">
-     <meta name="apple-mobile-web-app-capable" content="yes">
-     <meta name="application-name" content="B.Y PRO">
-     <meta name="apple-mobile-web-app-title" content="B.Y PRO">
-     <link rel="manifest" href="https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/manifest.json">
-     <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/favicon.ico">
-     <meta name="msapplication-TileImage" content="https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/favicon.ico">
-     <meta name="msapplication-TileColor" content="#000000">
-     <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <link rel="icon" href="https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/favicon.ico"type="image/x-icon">
-     <title>B.Y PRO - Official Page</title>
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-     <link rel="stylesheet" href="Style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="B.Y PRO">
+    <meta name="apple-mobile-web-app-title" content="B.Y PRO">
+    <meta name="msapplication-TileImage" content="https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/favicon.ico">
+    <meta name="msapplication-TileColor" content="#000000">
+    <link rel="icon" href="https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/favicon.ico" type="image/x-icon">
+    <title>B.Y PRO - Official Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="Style.css">
 </head>
 <body>
 <nav class="navbar">
     <div class="nav-links">
+        <div class="icon-buttons">
+            <i class="icon-button account-button" onclick="openAccount()">
+                <i class="fas fa-user no-translate"></i>
+            </i>
+            <i id="searchBtn" class="icon-button fas fa-search search-button no-translate" onclick="togglePopup()"></i>
+        </div>
 
-<div class="icon-buttons">
-    <i class="icon-button account-button" onclick="openAccount()">
-        <i class="fas fa-user"></i>
-    </i>
+        <div id="popup" class="popup">
+            <div class="popup-content">
+                <i class="fas fa-times close-btn" onclick="closePopup()"></i>
+                <div class="search-container">
+                    <input type="text" class="search-input" placeholder="Search...">
+                    <button class="search-button-popup no-translate" onclick="showResults()">Search</button>
+                </div>
+                <div class="loading-indicator" style="display: none;"></div>
+            </div>
+        </div>
 
-    <i id="searchBtn" class="icon-button fas fa-search search-button" onclick="togglePopup()"></i>
-</div>
-
-<script>
-    function openAccount() {
-        window.location.href = "https://yacne.github.io/B.Y-PRO---Official-Page/login.html";
-    }
-    
-    function togglePopup() {
-        var popup = document.getElementById("popup");
-        popup.style.display = popup.style.display === "block" ? "none" : "block";
-    }
-    
-    function closePopup() {
-        var popup = document.getElementById("popup");
-        popup.style.display = "none";
-    }
-    
-    function showResults() {
-        var resultsPopup = document.getElementById("resultsPopup");
-        resultsPopup.style.display = "block";
-        var searchInput = document.querySelector(".search-input").value;
-        
-        // Add logic for showing search results here
-        
-        if (searchInput.trim() === "") {
-            document.getElementById("noResults").style.display = "block";
-        } else {
-            document.getElementById("noResults").style.display = "none";
-            // Populate search results
-        }
-    }
-</script>
-
-<div id="popup" class="popup">
-    <div class="popup-content">
-        <i class="fas fa-times close-btn" onclick="closePopup()"></i>
-        <input type="text" class="search-input" placeholder="Search...">
-        <button class="search-button-popup" onclick="showResults()">Search</button>
-        <div class="loading-indicator" style="display: none;"></div>
+        <div id="resultsPopup" class="popup-results" style="display: none;">
+            <div class="popup-content">
+                <div class="search-results"></div>
+                <div id="noResults" class="no-results" style="display: none;">No results found.</div>
+            </div>
+        </div>
     </div>
-</div>
-
-<div id="resultsPopup" class="popup-results" style="display: none;">
-    <div class="popup-content">
-        <div class="search-results"></div>
-        <div id="noResults" class="no-results" style="display: none;">No results found.</div>
-    </div>
-</div>
- 
-
-
-
-
-
-
-    </div>
-    <div class="logo">
-           <img src="https://github.com/Yacne/B.Y-PRO---Official-Page/blob/main/B.Y%20PRO.png?raw=true" alt="B.Y PRO">
-               <span>B.Y PRO</span>
+    <div class="logo no-translate">
+        <img src="https://github.com/Yacne/B.Y-PRO---Official-Page/blob/main/B.Y%20PRO.png?raw=true" alt="B.Y PRO">
+        <span class="no-translate">B.Y PRO</span>
     </div>
     <div class="nav-links">
-        <button onclick="showDefaultContent()" class="float-right">Home</button>
-        <button onclick="toggleAbout()" class="float-right">About</button>
+        <button onclick="showDefaultContent()" class="float-right no-translate">Home</button>
+        <button onclick="toggleAbout()" class="float-right no-translate">About</button>
     </div>
 </nav>
 
+<!-- Main Content -->
+<div class="container1"></div>
 
+<div class="container">
+    <p style="text-align: center;color: white; font-weight: bold; font-size: 2rem; display: flex; justify-content: center; align-items: center; padding: 30px;">
+        Our services :
+    </p>
 
-
-     <div class="container1"></div>
-
-
-
-     <!-- Main Content -->
-     <div class="container">
-
-          <p style="text-align: center;color: white;
-            font-weight: bold;
-            font-size: 2rem;display: flex;
-            justify-content: center;
-            align-items: center;padding: 30px;">
-               Our services :
-          </p>
-  
-  
-  
-   <div id="overlay">
-        <iframe id="serviceIframe"></iframe>
-    </div>
-  
-  
-
-          <!-- Services Section -->
-          <section id="services" class="services-section">
-             <div class="service" onclick="showDeviceIframe()">
-    <img src="https://images.pexels.com/photos/356056/pexels-photo-356056.jpeg?auto=compress&cs=tinysrgw=400" alt="Device Repair">
-    
-    <div class="service-text">
-        <h1>Device Repair</h1>
-        <p>We offer repair services for phones and computers.</p>
-    </div>
-</div>
-
-            <div class="service" onclick="showSoftwareIframe()">
-    <img src="https://academy.hsoub.com/uploads/monthly_2023_04/.thumb.png.c7d2b157e6598de8ca39acfa477468ff.png"
-         alt="Software Development">
-    <div class="service-text">
-         <h1>Software Development</h1>
-         <p>We provide custom software development solutions.</p>
-    </div>
-               </div>
-                    <div class="service" onclick="showIframe('https://yacne.github.io/B.Y-PRO---Official-Page/Montage.html')">
-            <img src="https://i.pinimg.com/736x/3b/d2/eb/3bd2eb45a82afed688f98473a0bdd9b9.jpg"
-                 alt="Photo Editing and Video Montage">
-            <div class="service-text">
-                <h1>Photo Editing and Video Montage</h1>
-                <p>Professional editing and montage services.</p>
-            </div>
-        </div>
-    
-    
-    
-    <div id="overlay" style="display: none;">
-        <iframe id="serviceIframe" style="width: 100%; height: 100%; border: none;"></iframe>
-    </div>
-    
-    
-    
-            
-    <div class="service" onclick="showIframe('https://yacne.github.io/B.Y-PRO---Official-Page/Hacking.html')">
-        <img src="https://i.pinimg.com/736x/e6/ec/86/e6ec86d140147e8dc72514dbd2af546f.jpg" alt="Cybersecurity Information Services">
-        <div class="service-text">
-            <h1>Cybersecurity Information Services</h1>
-            <p>We provide cybersecurity awareness and information services.</p>
-            
-            
     <div id="overlay">
         <iframe id="serviceIframe"></iframe>
     </div>
 
+    <section id="services" class="services-section">
+        <div class="service" onclick="showDeviceIframe()">
+            <img src="https://images.pexels.com/photos/356056/pexels-photo-356056.jpeg?auto=compress&cs=tinysrgw=400" alt="Device Repair">
+            <div class="service-text">
+                <h1 class="no-translate">Device Repair</h1>
+                <p class="no-translate">We offer repair services for phones and computers.</p>
+            </div>
+        </div>
 
+        <div class="service" onclick="showSoftwareIframe()">
+            <img src="https://academy.hsoub.com/uploads/monthly_2023_04/.thumb.png.c7d2b157e6598de8ca39acfa477468ff.png" alt="Software Development">
+            <div class="service-text">
+                <h1 class="no-translate">Software Development</h1>
+                <p class="no-translate">We provide custom software development solutions.</p>
+            </div>
+        </div>
 
-          </section>
+        <div class="service" onclick="showIframe('https://yacne.github.io/B.Y-PRO---Official-Page/Montage.html')">
+            <img src="https://i.pinimg.com/736x/3b/d2/eb/3bd2eb45a82afed688f98473a0bdd9b9.jpg" alt="Photo Editing and Video Montage">
+            <div class="service-text">
+                <h1 class="no-translate">Photo Editing and Video Montage</h1>
+                <p class="no-translate">Professional editing and montage services.</p>
+            </div>
+        </div>
 
-          <!-- Main Content -->
-          <div class="container0">
+        <div class="service" onclick="showIframe('https://yacne.github.io/B.Y-PRO---Official-Page/Hacking.html')">
+            <img src="https://i.pinimg.com/736x/e6/ec/86/e6ec86d140147e8dc72514dbd2af546f.jpg" alt="Cybersecurity Information Services">
+            <div class="service-text">
+                <h1 class="no-translate">Cybersecurity Information Services</h1>
+                <p class="no-translate">We provide cybersecurity awareness and information services.</p>
+            </div>
+        </div>
+    </section>
 
-               <p style="text-align: center;
-            font-weight: bold;
-            font-size: 2rem;display: flex;
-            justify-content: center;
-            align-items: center;padding: 30px;">
-                    Our products :
-               </p><br><br>
-          </div>
+    <div class="container0">
+        <p style="text-align: center; font-weight: bold; font-size: 2rem; display: flex; justify-content: center; align-items: center; padding: 30px;">
+            Our products :
+        </p>
+    </div>
 
-          <div class="container2">
-          		
-          		
-          		<!-- iframe for Techno app -->
-<div class="technoapp" id="technoIframeContainer">
-     <iframe id="technoIframe" style="width: 100%; height: 100%; border: none;"></iframe>
-</div>
-          		
-          		
-          		
-          		
-          		
-          		
-               <div class="box" onclick="toggleTechnoApp()">
-     <img src="https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/1719302200793.jpg" alt="Image 1">
-     <div class="title">Techno app</div>
-</div>
-          		
-          		
-          		
-          		
-               <div onclick="toggleZamasou()" class="box">
-                    <img src="https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/1719302211684.jpg"
-                         alt="Image 2">
-                    <div class="title">Zamasou hacking devices</div>
-               </div>
-               <div onclick="toggleMoro()" class="box">
-                    <img src="https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/1719302220693.jpg"
-                         alt="Image 3">
-                    <div class="title">Moro Fb hacking</div>
-               </div>
-               <div onclick="toggleAlpha()" class="box">
-                    <img src="https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/1719302237520.jpg"
-                         alt="Image 4">
-                    <div class="title">Alpha os</div>
+    <div class="container2">
+        <div class="products" onclick="toggleTechnoApp()">
+            <img src="https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/1719302200793.jpg" alt="Image 1">
+            <div class="title no-translate">Techno app</div>
+        </div>
 
-               </div>
-          		
-                <div onclick="toggleBulma()" class="box">
-                		<img src="https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/Bulmaideweb (1).png" alt="Image 5">
-                		<div class="title">Bulma IDE web</div>
-                		
-                
-          </div>
+        <div onclick="toggleZamasou()" class="products">
+            <img src="https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/1719302211684.jpg" alt="Image 2">
+            <div class="title no-translate">Zamasou hacking devices</div>
+        </div>
 
-               <div onclick="toggleWhis()" class="box">
-                    <img src="https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/Whis.png"
-                         alt="Image 6">
-                    <div class="title">Whis assistance AI</div>
-               </div>
+        <div onclick="toggleMoro()" class="products">
+            <img src="https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/1719302220693.jpg" alt="Image 3">
+            <div class="title no-translate">Moro Fb hacking</div>
+        </div>
 
+        <div onclick="toggleAlpha()" class="products">
+            <img src="https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/1719302237520.jpg" alt="Image 4">
+            <div class="title no-translate">Alpha os</div>
+        </div>
 
+        <div onclick="toggleBulma()" class="products">
+            <img src="https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/Bulmaideweb (1).png" alt="Image 5">
+            <div class="title no-translate">Bulma IDE web</div>
+        </div>
 
+        <div onclick="toggleWhis()" class="products">
+            <img src="https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/Whis.png" alt="Image 6">
+            <div class="title no-translate">Whis assistance AI</div>
+        </div>
+    </div>
 
-
-
-               <!-- About section -->
-               <div class="about-section" id="iframeContainer">
-                    <h1>About B.Y PRO</h1><br>
-                    <p>At B.Y PRO, we make technology work efficiently and smoothly for you. We are not just a
-                         software company; we are
-                         a leader in the digital transformation world, offering a wide range of integrated services
-                         to meet all your
-                         technological needs.</p>
-                    <br>
-                    <h2>Our Services include:</h2><br>
-                    <ul>
-                         <li><strong>Development and Programming:</strong> We provide customized software solutions
-                              tailored to your
-                              business goals, whether you need innovative mobile applications, content management
-                              systems, or
-                              comprehensive e-commerce solutions.</li><br>
-                         <li><strong>Hardware Repair and Technical Support:</strong> Our specialized team offers
-                              quick and efficient
-                              repair services for various devices, including computers, laptops, and smartphones,
-                              with superior
-                              technical support to ensure seamless business operations.</li><br>
-                         <li><strong>Software Design and Development:</strong> We build tools that deliver real
-                              operational efficiency
-                              and improvements in your business field, contributing to increased productivity and
-                              cost reduction.</li><br>
-                         <li><strong>Cybersecurity Education:</strong> We understand the importance of
-                              cybersecurity in the digital
-                              age, so we offer specialized training courses and workshops to educate your employees
-                              on handling
-                              security threats and protecting sensitive data.</li><br>
-                         <li><strong>User Support and Technical Consultations:</strong> We provide comprehensive
-                              user support services,
-                              including remote technical support and technical consultations to assist you in
-                              making optimal decisions
-                              to achieve your technological goals.</li>
-                    </ul><br>
-
-                    <p><strong>Why Choose B.Y PRO?</strong> We stand out by providing quality and innovative
-                         technology solutions,<br>
-                         backed by a dedicated team committed to achieving customer satisfaction. Whether you are a
-                         startup or a large enterprise, we ensure solutions that meet your challenges and contribute to
-                         your business growth with confidence and sustainability.</p><br>
-
-                    <p>Start your technological success journey with B.Y PRO today and benefit from a unique experience
-                         in transforming your ideas into advanced digital reality.</p>
-                    <br><br><br><br><br>
-               </div>
-               <!-- Social Media Icons -->
-               <div class="social-icons">
-                    <a href="https://www.facebook.com/profile.php?id=100085217054240"><i
-                              class="fab fa-facebook"></i></a>
-                    <a href="https://twitter.com/Yacinebenm81049"><i class="fab fa-twitter"></i></a>
-                    <a href="https://www.instagram.com/b.yproinsta"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.linkedin.com/in/b-y-pro-519940263"><i class="fab fa-linkedin"></i></a>
-                    <a href="tel:+213795082763"><i class="fas fa-phone"></i></a>
-                    <a href="mailto:bypro2023@outlook.com"><i class="fas fa-envelope"></i></a>
-                    <a href="https://wa.me/213795082763"><i class="fab fa-whatsapp"></i></a>
-                    <a href="http://tiktok.com/@b.yprotiktok"><i class="fab fa-tiktok"></i></a>
-                    <a href="https://www.youtube.com/@technoYT2024"><i class="fab fa-youtube"></i></a>
-               </div>
-               
-               
-               
-               
-               
-               
-<div class="summary-section">
-    <img src="https://github.com/Yacne/B.Y-PRO---Official-Page/blob/main/B.Y%20PRO.png?raw=true" alt="B.Y PRO Logo">
-    <div class="summary-text">
-        <p>B.Y PRO software company is one of the leading companies in providing integrated software solutions. We are keen to provide the best services to our customers, focusing on improving performance, efficiency, and ease of use on various devices. We always strive to provide innovative solutions that meet users needs and ensure a distinctive and effective experience.</p>
+    <div class="about-section" id="iframeContainer">
+        <h1 class="no-translate">About B.Y PRO</h1>
+        <p class="no-translate">At B.Y PRO, we make technology work efficiently and smoothly for you. We are not just a software company; we are a leader in the digital transformation world, offering a wide range of integrated services to meet all your technological needs.</p>
+        <h2 class="no-translate">Our Services include:</h2>
+        <ul>
+            <li><strong class="no-translate">Development and Programming:</strong> We provide customized software solutions tailored to your business goals, whether you need innovative mobile applications, content management systems, or comprehensive e-commerce solutions.</li>
+            <li><strong class="no-translate">Hardware Repair and Technical Support:</strong> Our specialized team offers quick and efficient repair services for various devices, including computers, laptops, and smartphones, ensuring minimal downtime for your business.</li>
+            <li><strong class="no-translate">Cybersecurity:</strong> Protect your digital assets with our advanced cybersecurity services. We offer solutions to safeguard your data, ensure secure communications, and prevent cyber threats.</li>
+            <li><strong class="no-translate">Digital Marketing and SEO:</strong> Enhance your online presence with our digital marketing services. From SEO optimization to targeted advertising campaigns, we help you reach your audience and grow your business.</li>
+        </ul>
+        <p class="no-translate">We are committed to delivering high-quality solutions with a focus on customer satisfaction and innovation. Join us in shaping the future of technology.</p>
     </div>
 </div>
-<script src="javascript.js"></script>
-<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+<div class="summary-section no-translate">
+    <img src="https://github.com/Yacne/B.Y-PRO---Official-Page/blob/main/B.Y%20PRO.png?raw=true" alt="B.Y PRO Logo">
+    <div class="summary-text">
+        <p>B.Y PRO software company is one of the leading companies in providing integrated software solutions. We are keen to provide the best services to our customers, focusing on improving performance, efficiency, and ease of use on various devices. We always strive to provide innovative solutions that meet users' needs and ensure a distinctive and effective experience.</p>
+    </div>
+    <footer class="no-translate">
+    <p><br>&copy; 2024 B.Y PRO. All rights reserved.</p>
+</footer>
+</div>
+<script src="script.js"></script>
 </body>
 </html>
