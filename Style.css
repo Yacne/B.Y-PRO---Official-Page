@@ -1,4 +1,10 @@
-		
+ /* Prevent text from being translated */
+        .no-translate {
+            -webkit-text-security: none;
+            text-transform: none;
+            unicode-bidi: plaintext;
+            direction: ltr;
+        }
 * {
     margin: 0;
     padding: 0;
@@ -16,6 +22,7 @@ body {
     text-shadow: 1px 1px 2px black;
     padding-bottom: 50px; 
     
+   
 }
 
 @media (min-width: 1024px) {
@@ -215,19 +222,19 @@ position: fixed;
         color: #bbb;
     }
 
-.box-container {
+.products-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
 }
 
-.box {
+.products {
     border: none;
     border-radius: 15px;
 }
 
-.box img {
+.products img {
     border: none;
     border-radius: 15px;
     width: 100%;
@@ -236,7 +243,7 @@ position: fixed;
     object-fit: cover;
 }
 
-.box .title {
+.products .title {
     position: absolute;
     bottom: 0;
     border-radius: 15px;
@@ -255,16 +262,16 @@ position: fixed;
     align-items: center; /* لضبط المحتوى في الوسط أفقيًا */
 }
 
-.box:hover .title {
+.products:hover .title {
     transform: translateY(0);
     display: flex;
     flex-direction: column;
     justify-content: center; /* لضبط المحتوى في الوسط عموديًا */
-    align-items: center; /* لضبط المحتوى في الوسط أفقيًا */
+    align-items: cter; /* لضبط المحتوى في الوسط أفقيًا */
 }
 
 
-.box:hover .title {
+.products:hover .title {
     transform: translate(-50%, 0);
     opacity: 1; /* إظهار النص عند التحريك فوق العنصر */
 }
@@ -546,7 +553,7 @@ position: fixed;
         color: #bbb;
     }
 
-    .box-container {
+    .products-container {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
@@ -557,7 +564,7 @@ position: fixed;
         
     }
 
-    .box {
+    .products {
         border: none;
         border-radius: 15px;
         justify-content: center;
@@ -566,7 +573,7 @@ position: fixed;
     align-items: center;
     }
 
-    .box img {
+    .products img {
         border: none;
         border-radius: 15px;
         width: 85%;
@@ -578,7 +585,7 @@ position: fixed;
     align-items: center;
     }
 
-.box .title {
+.products .title {
     position: absolute;
     bottom: 0;
     left: 50%;
@@ -598,7 +605,7 @@ position: fixed;
     opacity: 0; /* إخفاء النص في البداية */
 }
 
-.box:hover .title {
+.products:hover .title {
     transform: translate(-50%, 0);
     opacity: 1; /* إظهار النص عند التحريك فوق العنصر */
 }
@@ -894,14 +901,14 @@ position: fixed;
         color: #bbb;
     }
 
-.box-container {
+.products-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center; /* يجعل العناصر المتبقية في الوسط */
     gap: 20px;
 }
 
-.box {
+.products {
     border: none;
     border-radius: 15px;
     padding: 20px;
@@ -910,7 +917,7 @@ position: fixed;
     position: relative;
 }
 
-.box .title {
+.products .title {
     position: absolute;
     bottom: 0;
     left: 50%;
@@ -930,7 +937,7 @@ position: fixed;
     opacity: 0; /* إخفاء النص في البداية */
 }
 
-.box:hover .title {
+.products:hover .title {
     transform: translate(-50%, 0);
     opacity: 1; /* إظهار النص عند التحريك فوق العنصر */
 }
@@ -1052,7 +1059,19 @@ position: fixed;
 
 
 
+.search-result-item {
+    margin-bottom: 20px;
+}
 
+.search-result-item h3 {
+    color: white;
+    font-size: 2rem;
+}
+
+.search-result-item p {
+    color: blue;
+    font-size: 2rem;
+}
 
 .icon-buttons {
     display: flex;
@@ -1080,78 +1099,104 @@ position: fixed;
 }
 
 
-
-  /* ستايلات ال popup */
-  .popup {
-    display: none; /* للإخفاء افتراضياً */
+/* نمط النافذة المنبثقة */
+.popup {
     position: fixed;
-    top: 12%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 10%; /* وضع النافذة في 10% من الأعلى */
+    left: 50%; /* وضع النافذة في 50% من اليسار */
+    transform: translateX(-50%); /* توسيط النافذة أفقياً */
     z-index: 9999;
-    backdrop-filter: blur(5px); /* تأثير التمويه لجعل الخلفية ضبابية */
-    padding: 20px;
+    backdrop-filter: blur(10px); /* تأثير التمويه */
+    padding: 15px;
     border-radius: 15px;
     color: #fff;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-    width: 95%;
-    border: 1px solid ;
-  }
+    width: 90%; /* لتحديد عرض أقصى */
+    border: 1px solid #fff;
+    overflow: hidden; /* منع التمرير في النافذة نفسها */
+    display: none; /* إخفاء النافذة في البداية */
+}
 
-  .popup-content {
-      display: flex;
-    margin-top: 5px;
-    padding: 10px;
-    border-radius: 5px;
-    background-color: transparent;
-    cursor: auto;
-  }
+/* محتوى النافذة */
+.popup-content {
+    position: relative; /* لجعل زر الإغلاق في الأعلى الأيمن */
+    display: flex;
+    flex-direction: column;
+}
 
-  .search-input {
+/* زر الإغلاق */
+.close-btn {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    font-size: 1rem;
+    color: red;
+    cursor: pointer;
+}
+
+/* حاوية البحث */
+/* حاوية البحث */
+.search-container {
+    display: flex;
+    align-items: center; /* محاذاة العناصر عموديًا */
+    top: 10%; /* مسافة فوق حاوية البحث */
+}
+
+/* صندوق البحث */
+.search-input {
     flex: 1;
     width: 85%;
-    padding: 10px;
-    border: none;
-    border-bottom: px solid white;
+    height: Auto; /* ارتفاع ثابت للصندوق */
+    padding: 5px;
+    border: 1px solid white;
     background-color: #fff;
     border-radius: 3px;
-    margin-right: 10px;
-  }
+    margin-right: 10px; /* مسافة بين الصندوق وزر البحث */
+}
 
-  .search-button-popup {
+/* زر البحث */
+.search-button-popup {
     background-color: transparent;
     border: 1px solid white;
     color: white;
     padding: 10px 20px;
     cursor: pointer;
     border-radius: 5px;
-  }
+}
 
-
+/* نتائج البحث */
 .popup-results {
-    display: none; /* للإخفاء افتراضياً */
     position: fixed;
-    top: 57%; /* تبقى نفس الارتفاع لpopup */
-    left: 50%;
-    transform: translate(-50%, -50%);
+    margin-top: 20%; /* وضع النافذة في 10% من الأعلى */
+    left: 50%; /* وضع النافذة في 50% من اليسار */
+    transform: translateX(-50%); /* توسيط النافذة أفقياً */
     z-index: 9999;
-    backdrop-filter: blur(10px); /* تأثير التمويه لجعل الخلفية ضبابية */
-    padding: 20px;
+    backdrop-filter: blur(10px); /* تأثير التمويه */
+    padding: 15px;
     border-radius: 15px;
     color: #fff;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-    width: 95%;
-    height: 72%;
+    width: 90%; /* لتحديد عرض أقصى */
+    height: 65%;
     border: 1px solid #fff;
-    bottom: 5px; /* الإزاحة السفلية */
-    overflow-y: auto; /* إذا كانت النتائج كثيرة، سيمكن التمرير في الارتفاع */
+    overflow: auto;
+    display: none; /* إخفاء النافذة في البداية */
 }
 
+.search-result-item {
+    margin-bottom: 10px;
+}
 
+.search-result-item .keyword {
+    font-size: 18px;
+    color: #007BFF;
+    cursor: pointer;
+}
 
-
-
-
+.search-result-item .location {
+    font-size: 14px;
+    color: #555;
+}
 
 .loading-indicator {
     border: 5px solid #ccc; /* Light grey */
