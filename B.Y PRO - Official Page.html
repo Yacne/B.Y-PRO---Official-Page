@@ -12,6 +12,7 @@
     <link rel="icon" href="https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/favicon.ico" type="image/x-icon">
     <title>B.Y PRO - Official Page</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="Style.css">
     <style>
         /* Prevent text from being translated */
@@ -21,35 +22,26 @@
     </style>
 </head>
 <body>
-<nav class="navbar no-translate">
+
+<!-- Navigation Bar -->
+<nav class="navbar">
     <div class="nav-links">
+        <!-- Icon Buttons -->
         <div class="icon-buttons">
-            <i class="icon-button account-button" onclick="openAccount()">
-                <i class="fas fa-user"></i>
-            </i>
+           <i class="icon-button account-button" onclick="openAccount()">
+    <i class="fas fa-user"></i>
+</i>
+
             <i id="searchBtn" class="icon-button fas fa-search search-button" onclick="togglePopup()"></i>
         </div>
-
-        <div id="popup" class="popup">
-            <div class="popup-content">
-                <i class="fas fa-times close-btn" onclick="closePopup()"></i>
-                <div class="search-container">
-                    <input type="text" class="search-input" placeholder="Search...">
-                    <button class="search-button-popup" onclick="showResults()">Search</button>
-                </div>
-                <div class="loading-indicator" style="display: none;"></div>
-            </div>
-        </div>
-
-        <div id="resultsPopup" class="popup-results" style="display: none;">
-            <div class="popup-content">
-                <div class="search-results"></div>
-                <div id="noResults" class="no-results" style="display: none;">No results found.</div>
-            </div>
-        </div>
     </div>
-    <div class="logo no-translate">
-        <img src="https://github.com/Yacne/B.Y-PRO---Official-Page/blob/main/B.Y%20PRO.png?raw=true" alt="B.Y PRO">
+    <!-- Search Popup -->
+    <div id="popup" class="popup">
+        <!-- Search details go here -->
+    </div>
+    <!-- Logo and Other Links -->
+    <div class="logo">
+        <img src="B.Y%20PRO.png?raw=true" alt="B.Y PRO">
         <span>B.Y PRO</span>
     </div>
     <div class="nav-links">
@@ -62,31 +54,27 @@
 <div class="container1"></div>
 
 <div class="container">
-    <p style="text-align: center;color: white; font-weight: bold; font-size: 2rem; display: flex; justify-content: center; align-items: center; padding: 30px;">
-        Our services :
+    <p style="text-align: center; color: white; font-weight: bold; font-size: 2rem; padding: 30px;">
+        Our services:
     </p>
-
     <div id="overlay">
         <iframe id="serviceIframe"></iframe>
     </div>
-
     <section id="services" class="services-section">
         <div class="service" onclick="showDeviceIframe()">
-            <img src="https://images.pexels.com/photos/356056/pexels-photo-356056.jpeg?auto=compress&cs=tinysrgw=400" alt="Device Repair">
+            <img src="https://images.pexels.com/photos/356056/pexels-photo-356056.jpeg?auto=compress&cs=tinysrgb&h=400" alt="Device Repair">
             <div class="service-text">
                 <h1>Device Repair</h1>
                 <p>We offer repair services for phones and computers.</p>
             </div>
         </div>
-
         <div class="service" onclick="showSoftwareIframe()">
-            <img src="https://academy.hsoub.com/uploads/monthly_2023_04/.thumb.png.c7d2b157e6598de8ca39acfa477468ff.png" alt="Software Development">
+            <img src="https://i.pinimg.com/736x/45/d8/cf/45d8cf9fc7e6f318eac0e4aa767783e4.jpg" alt="Software Development">
             <div class="service-text">
                 <h1>Software Development</h1>
                 <p>We provide custom software development solutions.</p>
             </div>
         </div>
-
         <div class="service" onclick="showIframe('https://yacne.github.io/B.Y-PRO---Official-Page/Montage.html')">
             <img src="https://i.pinimg.com/736x/3b/d2/eb/3bd2eb45a82afed688f98473a0bdd9b9.jpg" alt="Photo Editing and Video Montage">
             <div class="service-text">
@@ -94,7 +82,6 @@
                 <p>Professional editing and montage services.</p>
             </div>
         </div>
-
         <div class="service" onclick="showIframe('https://yacne.github.io/B.Y-PRO---Official-Page/Hacking.html')">
             <img src="https://i.pinimg.com/736x/e6/ec/86/e6ec86d140147e8dc72514dbd2af546f.jpg" alt="Cybersecurity Information Services">
             <div class="service-text">
@@ -103,46 +90,59 @@
             </div>
         </div>
     </section>
-
     <div class="container0">
-        <p style="text-align: center; font-weight: bold; font-size: 2rem; display: flex; justify-content: center; align-items: center; padding: 30px;">
-            Our products :
+        <p style="text-align: center; font-weight: bold; font-size: 2rem; padding: 30px;">
+            Our products:
         </p>
     </div>
-
     <div class="container2">
         <div class="products" onclick="toggleTechnoApp()">
-            <img src="https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/1719302200793.jpg" alt="Image 1">
+            <img src="https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/1719302200793.jpg" alt="Techno app">
             <div class="title">Techno app</div>
         </div>
-
-        <div onclick="toggleZamasou()" class="products">
-            <img src="https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/1719302211684.jpg" alt="Image 2">
+        <div class="products" onclick="toggleZamasou()">
+            <img src="https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/1719302211684.jpg" alt="Zamasou hacking devices">
             <div class="title">Zamasou hacking devices</div>
         </div>
-
-        <div onclick="toggleMoro()" class="products">
-            <img src="https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/1719302220693.jpg" alt="Image 3">
+        <div class="products" onclick="toggleMoro()">
+            <img src="https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/1719302220693.jpg" alt="Moro Fb hacking">
             <div class="title">Moro Fb hacking</div>
         </div>
-
-        <div onclick="toggleAlpha()" class="products">
-            <img src="https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/1719302237520.jpg" alt="Image 4">
+        <div class="products" onclick="toggleAlpha()">
+            <img src="https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/1719302237520.jpg" alt="Alpha os">
             <div class="title">Alpha os</div>
         </div>
-
-        <div onclick="toggleBulma()" class="products">
-            <img src="https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/Bulmaideweb (1).png" alt="Image 5">
+        <div class="products" onclick="toggleBulma()">
+            <img src="https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/Bulmaideweb%20(1).png" alt="Bulma IDE web">
             <div class="title">Bulma IDE web</div>
         </div>
-
-        <div onclick="toggleWhis()" class="products">
-            <img src="https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/Whis.png" alt="Image 6">
+        <div class="products" onclick="toggleWhis()">
+            <img src="https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/Whis.png" alt="Whis assistance AI">
             <div class="title">Whis assistance AI</div>
         </div>
-    </div>
 
-    <div class="about-section" id="iframeContainer">
+
+
+
+
+
+<div class="products" onclick="toggleNamek()">
+    <img src="https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/Namek%20Encryptor.jpg" alt="Namek Encryptor">
+    <div class="title">Namek Encryptor</div>
+</div>
+
+<!-- Iframe for service details -->
+<div id="service-iframe-container">
+    <iframe id="service-iframe" src="" title="Service Details"></iframe>
+</div>
+
+
+
+
+
+
+    </div>
+    <div class="about-section no-translate" id="iframeContainer">
         <h1>About B.Y PRO</h1>
         <p>At B.Y PRO, we make technology work efficiently and smoothly for you. We are not just a software company; we are a leader in the digital transformation world, offering a wide range of integrated services to meet all your technological needs.</p>
         <h2>Our Services include:</h2>
@@ -154,18 +154,27 @@
         </ul>
         <p>We are committed to delivering high-quality solutions with a focus on customer satisfaction and innovation. Join us in shaping the future of technology.</p>
     </div>
-
-    <div class="summary-section no-translate" translate="no">
+    <div class="summary-section no-translate">
         <img src="https://github.com/Yacne/B.Y-PRO---Official-Page/blob/main/B.Y%20PRO.png?raw=true" alt="B.Y PRO Logo">
         <div class="summary-text">
             <p>B.Y PRO software company is one of the leading companies in providing integrated software solutions. We are keen to provide the best services to our customers, focusing on improving performance, efficiency, and ease of use on various devices. We always strive to provide innovative solutions that meet users' needs and ensure a distinctive and effective experience.</p>
         </div>
     </div>
-
-    <footer class="no-translate" translate="no">
-        <p>&copy; 2024 B.Y PRO. All rights reserved.</p>
+    <footer class="no-translate">
+        <p align="center">&copy; 2024 B.Y PRO, All rights reserved.</p>
     </footer>
-
+    <!-- Iframe for service details -->
+    <div id="service-iframe-container" style="display: none;">
+        <iframe id="service-iframe" src="" title="Service Details"></iframe>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
     <script src="script.js"></script>
 </body>
 </html>
