@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Namek Encryptor</title>
+    <style>
+        body {
+            display: flex;
+        		left: 0;
+               right: 0;
+               height: 100%;
+               width: 100%;
+            flex-direction: column;
+            align-items: center;
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+            font-size: 1.9rem;
+        		background-color: #ffff
+        }
+
+        .top-image {
+            width: 100%;
+            position: relative;
+            top: 0;
+            left: 0;
+        }
+
+        .content {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            width: 100%;
+            margin-top: 3px;
+        }
+
+        .image-container {
+            border: 3px solid #fff;
+            border-radius: 15px;
+            margin-right: 10%;
+        }
+
+        .image-container img {
+            width: 150px;
+            height: 150px;
+            
+            border-radius: 15px;
+            box-sizing: border-box;
+        }
+
+        .text-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: #000;
+            font-weight: bold;
+        }
+
+        .latest-version {
+    display: flex;
+    font-size: 1.2rem;
+    color: gray;
+    padding: 0px 35px; /* تحديد المسافة من الأعلى والأسفل صفر، واليسار 35px، واليمين 35px */
+    margin: 1px; /* حذف المسافة من الأعلى والأسفل واليسار واليمين */
+}
+
+        .description {
+            width: 90%;
+            font-size: 1.7rem;
+            border-radius: 15px;
+            border: 4px solid #000;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        .scrolling-wrapper {
+            display: flex;
+            overflow-x: auto;
+            width: 100%;
+            margin: 10px 0;
+        }
+
+        .scrolling-wrapper img {
+            width: 100%;
+            height: 600px;
+            margin-right: 10px;
+            border-radius: 15px;
+            border: 2px solid #000;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            font-size: 1.6rem;
+            margin: 10px 1;
+        		font-weight: bold;
+        }
+
+        .stars {
+            display: flex;
+        }
+
+        .star {
+            font-size: 3rem;
+            color: #fff;
+            padding: 5px;
+            margin: 0 5px;
+            cursor: pointer;
+            text-shadow: none;
+            -webkit-text-stroke: 1px black; /* تحديد حجم الحدود ولونها */
+            text-stroke: 1px black; /* لمتصفحات تدعم الخاصية بدون البريفيكس */
+        }
+
+        .selected {
+            color: #000;
+            background-color: #fff;
+        }
+
+        .buttons {
+            font-size: 1rem;
+            display: flex;
+            flex-direction: column;
+        		justify-content: center;
+            width: 90%;
+            margin: 10px;
+        		font-weight: bold;
+        }
+
+.button, .old-version-button {
+    border-radius: 15px;
+    border: 5px solid #000;
+    font-size: 1rem;
+		display: flex;
+		font-weight: bold;
+    justify-content: center;
+    align-items: center;
+    width: 85%; /* تعديل العرض إلى 85٪ من عرض الأصلي */
+    padding: 20px;
+    margin: 5px auto; /* توسيط الأزرار أفقياً */
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.comment-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center align comments */
+    width: 95%;
+}
+.comment {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 90%;
+    max-width: 95%;
+    margin: 10px auto;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #000;
+    border-radius: 5px;
+}
+
+.comment-input {
+    border-radius: 5px;
+    border: 3px solid #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 95%;
+    padding: 10px;
+    margin: 5px 0;
+    background-color: #fff;
+}
+
+.comment-button {
+    border-radius: 10px;
+    border: 3px solid #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 95%;
+    padding: 10px;
+    margin: 5px 0;
+    background-color: #fff;
+    cursor: pointer;
+    margin-top: 10px; /* Add margin to separate from comments */
+}
+		
+        .name {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+		
+		
+
+		
+		
+		
+.mini img {
+    position: absolute;
+    right: 20px;
+    transform: translateY(-20%);
+    width: 30px; 
+    height: 30px; 
+    border-radius: 5px;
+}
+		
+		
+		
+		
+		
+		
+
+		@media screen and (max-width: 767px) {
+    /* توسيط العناصر */
+    .content {
+        justify-content: flex-start;
+        flex-direction: row;
+    		display: flex;
+            justify-content: center;
+            align-items: center;
+    }
+
+    /* توسيط الأزرار */
+    .buttons {
+        width: 90%;
+        margin: 10px auto;
+    		display: flex;
+            justify-content: center;
+            align-items: center;
+    }
+
+    /* توسيط صناديق الإدخال */
+    .comment-input, .comment-button {
+        width: 90%;
+        margin: 5px auto;
+    		display: flex;
+            justify-content: center;
+            align-items: center;
+    }
+
+    /* توسيط التعليقات المقدمة */
+    .comment {
+        width: 90%;
+        margin: 10px auto;
+    		display: flex;
+            justify-content: center;
+            align-items: center;
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    /* تعديل الصورة */
+    .image-container {
+        margin-right: 0;
+        margin-left: 1%;
+    		
+    }
+
+    /* تعديل النصوص */
+    .text-container {
+    		font-size: 1.5rem;
+        margin-left: 0;
+        margin-right: 10%;
+            justify-content: center;
+            align-items: center;
+    }
+		
+		
+		.latest-version {
+            font-size: 1rem;
+            justify-content: center;
+            color: gray;
+            font-weight: normal;
+				margin-left: 0;
+        margin-right: 5%;
+            justify-content: center;
+            align-items: center;
+				
+				
+        }
+				
+				
+    /* تعديل حجم الصورة الأولى */
+    .scrolling-wrapper img:first-child {
+        width: auto; /* الحجم الأفقي العادي */
+        height: 600px; /* ارتفاع ثابت */
+        margin-right: 10px;
+        border-radius: 15px;
+        border: 2px solid #000;
+    		justify-content: center;
+            align-items: center;
+    }
+
+		
+				
+				
+				
+				    body {
+        font-size: 1.3rem;
+    }
+
+    .text-container {
+        font-size: 2.0rem;
+    }
+
+    .description {
+        font-size: 1.4rem;
+    }
+				
+				 .latest-version {
+    font-size: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: gray;
+    font-weight: normal;
+}
+				
+				
+}
+		
+        @media (min-width: 601px) and (max-width: 1024px) {
+        		
+        		        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+            font-size: 2rem;
+        }
+
+        .top-image {
+            width: 100%;
+            position: relative;
+            top: 0;
+            left: 0;
+        }
+
+
+
+        .content {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            width: 100%;
+            margin-top: 3px;
+        }
+
+        .image-container {
+            border: 3px solid #fff;
+            border-radius: 15px;
+            margin-left: 5%;
+        }
+
+        .image-container img {
+            width: 300px;
+            height: 300px;
+            border: 3px solid #fff;
+            border-radius: 30px;
+            box-sizing: border-box;
+        }
+
+        .text-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            font-size: 4rem;
+            color: #000;
+            font-weight: bold;
+        		margin: 1px; 
+        }
+
+        .latest-version {
+    display: flex;
+    font-size: 1rem;
+    color: gray;
+    padding: 0px 25px; /* تحديد المسافة من الأعلى والأسفل صفر، واليسار 35px، واليمين 35px */
+    margin: 1px; /* حذف المسافة من الأعلى والأسفل واليسار واليمين */
+}
+
+        .description {
+            width: 90%;
+            font-size: 1.7rem;
+            border-radius: 15px;
+            border: 4px solid #000;
+            padding: 10px;
+            margin: 10px 0;
+            text-align: center; /* Center text */
+        }
+
+        .scrolling-wrapper {
+            display: flex;
+            overflow-x: auto;
+            width: 100%;
+            margin: 10px 0;
+        }
+
+        .scrolling-wrapper img {
+            width: 100%;
+            height: 600px;
+            margin-right: 10px;
+            border-radius: 15px;
+            border: 2px solid #000;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            font-size: 1.6rem;
+            margin: 10px 1;
+            font-weight: bold;
+        }
+
+        .stars {
+            display: flex;
+            justify-content: center; /* Center align stars */
+            width: 100%; /* Full width to center align */
+        }
+
+        .star {
+            font-size: 3rem;
+            color: #fff;
+            padding: 5px;
+            margin: 0 5px;
+            cursor: pointer;
+            text-shadow: none;
+            -webkit-text-stroke: 1px black;
+            text-stroke: 1px black;
+        }
+
+        .selected {
+            color: #000;
+            background-color: #fff;
+        }
+
+        .buttons {
+            font-size: 1.8rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 90%;
+            margin: 10px;
+            font-weight: bold;
+            align-items: center; /* Center align buttons */
+        }
+
+        .button, .old-version-button {
+            border-radius: 15px;
+            border: 5px solid #000;
+        		font-size: 1.8rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 90%;
+            padding: 20px;
+            margin: 5px 0;
+            background-color: #fff;
+            cursor: pointer;
+        }
+
+        .old-version-button {
+            border-color: #ccc;
+            width: 90%;
+            padding: 10px;
+            background-color: #ffff;
+        }
+
+
+
+        .name {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        		.mini img {
+    position: absolute;
+    right: 20px;
+    transform: translateY(-60%);
+    width: 70px; 
+    height: 70px; 
+    border-radius: 5px;
+}
+        		
+        		.not-complete {
+        				color: red; /* تعيين لون أحمر للنص */
+        				display: flex;
+        				font-size: 2rem;
+        				justify-content: center;
+        				align-items: center;
+        				flex-direction: column;
+        				padding: 0px 0px;
+        				margin: 1px; 
+}
+        		
+        		
+
+.comment-section {
+    font-size: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 95%;
+    margin: 10px 0;
+    align-items: center; /* Center align comments */
+}
+
+.comment {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 95%;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.comment-input {
+    border-radius: 15px;
+    border: 3px solid #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 95%;
+    padding: 10px;
+    margin: 5px 0;
+    background-color: #fff;
+}
+
+.comment-button {
+    border-radius: 10px;
+    border: 3px solid #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 95%;
+    padding: 10px;
+    margin: 5px 0;
+    background-color: #fff;
+    cursor: pointer;
+    margin-top: 10px; /* Add margin to separate from comments */
+}
+        		
+        }
+
+		
+				
+		
+		
+		    .containerX {
+        width: 85%;
+        margin: 5px auto;
+		    		border-radius: 15px;
+        border: 2px solid #555; /* الحدود الرمادية الداكنة */
+        padding: 10px;
+		    		margin-bottom: 30px;
+    }
+
+    .commentX h3 {
+        margin-bottom: 5px;
+        font-size: 20px;
+    		    		color: #20B2AB;
+    }
+    .commentX p {
+        margin: 0;
+    		
+    }
+		
+		
+		
+		
+		
+    </style>
+</head>
+<body>
+		
+		
+		<img class="top-image" src="https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/abcd.jpg">
+<div class="content">
+    <div class="image-container">
+        <img src="https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/Namek%20Encryptor.jpg" alt="Namek Encryptor">
+    </div>
+    <div class="text-container">
+    <span translate="no">Namek Encryptor</span>
+    <div class="latest-version">
+        Latest version
+         </div>
+</div>
+		<div class="mini img">
+		    <img src="https://cdn-icons-png.flaticon.com/128/10703/10703030.png" alt="Small Icon">
+</div>
+</div>
+
+		
+	
+		
+		
+<div class="description">
+		A program that allows the user to encrypt Arabic or English texts and words using our Namek language encryption for the sake of privacy during very confidential and important conversations individually or collectively or with specific individuals within a large group and to protect the information and data sent, as our Namek encryption is new and difficult to decipher. It is difficult to build, but it is very useful. We hope you like it and help you 
+</div>
+<div class="buttons">
+    <div class="button" onclick="downloadLatestVersion()">Download</div>
+    
+</div>
+<div class="scrolling-wrapper">
+    <img src="https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/a.jpg" alt="Image 1">
+    <img src="https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/b.jpg" alt="Image 2">
+    <img src="https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/c.jpg" alt="Image 3">
+    <img src="https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/d.jpg" alt="Image 4">
+    <img src="https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/e.jpg" alt="Image 5">
+</div>
+
+<div class="stars">
+    <div class="star" data-value="1">&#9733;</div>
+    <div class="star" data-value="2">&#9733;</div>
+    <div class="star" data-value="3">&#9733;</div>
+    <div class="star" data-value="4">&#9733;</div>
+    <div class="star" data-value="5">&#9733;</div>
+</div>
+<div class="rating">
+    <p> Total ratings <hr></p>
+    <div class="rating-value"> 3.1</div>
+</div>
+
+		
+		
+
+		
+		
+		<div class="comment-section">
+    <input type="text" id="name" class="comment-input" placeholder="Your Name">
+    <input type="email" id="email" class="comment-input" placeholder="Your Email">
+    <textarea id="comment" class="comment-input" rows="4" placeholder="Your Comment + rating becaus Sending a rating in the comment is not available, you can write it by ★☆"></textarea>
+    <div class="comment-button" onclick="submitComment()">Submit</div>
+</div>
+		
+		
+		
+		
+		
+		
+		
+		
+<p class="not-complete">[ Sending a rating in the comment is not available ]</p>
+		
+		
+		<p style="color: #20B2AA;text-shadow: 1px 1px 1px black; text-align: center;"> comments:</p>
+		
+<div class="containerX">
+
+    <div class="commentX">
+        <h3>Yacine ben mokrane :</h3>
+        <p>A very wonderful and useful application. Thank you to B.Y PRO for providing us with this useful application.</p><p style=" text-align: right;">★★★★★</p>
+    </div>
+    <hr>
+    <div class="commentX">
+        <h3>Mohamed :</h3>
+        <p>The application is okay, but it is useful. Good luck.</p><p style=" text-align: right;">★★★☆☆</p>
+    </div>
+    <hr>
+    <div class="commentX">
+        <h3>son :</h3>
+        <p>A very innovative and wonderfully practical application.</p><p style=" text-align: right;">★★★★☆</p>
+    </div>
+		    <hr>
+</div>
+
+		
+
+    <script>
+        let currentRating = 3.1; // تقييم افتراضي
+        let totalVotes = 0; // عدد الأصوات الإجمالي
+        let userHasVoted = false; // متغير للتحقق من إمكانية التصويت للمستخدم الحالي
+
+        document.querySelectorAll('.star').forEach(star => {
+            star.addEventListener('click', () => {
+                if (!userHasVoted) {
+                    const rating = star.getAttribute('data-value');
+                    setRating(rating);
+                    userHasVoted = true;
+                }
+            });
+        });
+
+        function setRating(rating) {
+            // حذف النجوم المحددة
+            document.querySelectorAll('.star').forEach(star => {
+                star.classList.remove('selected');
+            });
+
+            // إضافة النجوم بناءً على التقييم الجديد
+            for (let i = 0; i < rating; i++) {
+                document.querySelectorAll('.star')[i].classList.add('selected');
+            }
+
+            updateRating(rating);
+        }
+
+       function updateRating(newRating) {
+    // حساب التقييم الجديد بناءً على الأصوات السابقة والجديدة
+    const calculatedRating = ((currentRating * totalVotes) + parseFloat(newRating)) / (totalVotes + 1);
+
+    // التحقق من أنه إذا اختار المستخدم 5 نجوم فقط، يتم تغيير القيمة إلى 4.7
+    if (parseFloat(newRating) === 5) {
+        currentRating = 3.2;
+    }
+
+    // عرض التقييم بصيغة محددة في الصفحة
+    document.querySelector('.rating-value').textContent = currentRating.toFixed(1);
+
+    // زيادة عدد الأصوات
+    totalVotes++;
+}
+        
+
+		
+		
+		
+function submitComment() {
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const comment = document.getElementById('comment').value;
+
+
+    const commentData = {
+        name: name,
+        email: email,
+        comment: comment,
+        timestamp: new Date().toISOString()
+    };
+
+    let comments = JSON.parse(localStorage.getItem('commentsX')) || [];
+    comments.push(commentData);
+    localStorage.setItem('commentsX', JSON.stringify(comments));
+
+    
+
+		
+    comments.forEach((comment, index) => {
+        commentElement.innerHTML = `
+            <h3>${comment.name} :</h3>
+            <p>${comment.comment}</p>
+        `;
+        commentsDisplay.appendChild(commentElement);
+        commentsDisplay.appendChild(document.createElement('hr')); // إضافة خط فاصل بين التعليقات
+    });
+
+    // إعادة تعيين حقول إدخال التعليقات بعد عرض التعليقات
+    document.getElementById('name').value = '';
+    document.getElementById('email').value = '';
+    document.getElementById('comment').value = '';
+}
+
+		
+	
+		
+		
+		function downloadLatestVersion() {
+            const link = document.createElement('a');
+            link.href = 'https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/Namek%20Encryptor.apk';
+            link.download = 'Techno_app_Last_version.apk';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+		
+		
+
+    </script>
+</body>
+</html>
