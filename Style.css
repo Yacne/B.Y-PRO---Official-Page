@@ -610,7 +610,6 @@ position: fixed;
     transform: translate(-50%, 0);
     opacity: 1; /* إظهار النص عند التحريك فوق العنصر */
 }
-
     .technoapp {
         display: none;
         position: fixed;
@@ -1049,7 +1048,7 @@ position: fixed;
         }
 
         .summary-section img {
-            width: 30%;
+            width: 10%;
             height: auto;
             margin-bottom: 20px;
         }
