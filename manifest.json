@@ -1,19 +1,18 @@
 {
   "name": "B.Y PRO",
   "short_name": "B.Y PRO",
-  "start_url": "https://yacne.github.io/B.Y-PRO---Official-Page/B.Y%20PRO%20-%20Official%20Page.html",
+  "start_url": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
+  "background_color": "#000000",
   "theme_color": "#000000",
-  "description": "Official Page of B.Y PRO",
   "icons": [
     {
-      "src": "https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/favicon.ico",
+      "src": "https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/B.Y PRO.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/favicon.ico",
+      "src": "https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/B.Y PRO.png",
       "sizes": "512x512",
       "type": "image/png"
     }
