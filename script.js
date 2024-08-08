@@ -1,3 +1,16 @@
+
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/service-worker.js')
+        .then(function(registration) {
+            console.log('Service Worker registered with scope:', registration.scope);
+        }).catch(function(error) {
+            console.log('Service Worker registration failed:', error);
+        });
+}
+
+
+
+
 // تعريف قائمة بالمسارات للصور
 const imagePaths = [
     'https://i.ibb.co/yXkBDfR/kmc-20240420-093454.png',
